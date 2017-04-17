@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('user/{id}', 'UserController@showProfile');
+
+Route::get('getAssignments', 'AssignmentController@getAssignments');
+Route::get('createAssignment', 'AssignmentController@createAssignment');
+Route::post('saveAssignment', ['as' => 'saveAssignment','uses' => 'AssignmentController@saveAssignment']);

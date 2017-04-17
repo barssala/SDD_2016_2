@@ -1,0 +1,20 @@
+.table-hover 
+{	
+	text-align: center;
+}
+.table-hover th
+{
+	text-align: center;
+}
+.table-hover tr{
+	cursor: pointer;
+	
+}
+
+.table-hover td:nth-child(2){
+    text-align: left;
+}
+
+.space{
+	height:15px;
+}
