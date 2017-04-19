@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/form',function(){
+   return view('form');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,4 +23,10 @@ Route::get('user/{id}', 'UserController@showProfile');
 
 Route::get('getAssignments', 'AssignmentController@getAssignments');
 Route::get('createAssignment', 'AssignmentController@createAssignment');
+Route::get('deleteAssignment/{id}', 'AssignmentController@delete');
+Route::get('updateAssignment/{id}', 'AssignmentController@getAssignmentUpdate');
 Route::post('saveAssignment', ['as' => 'saveAssignment','uses' => 'AssignmentController@saveAssignment']);
+
+Route::get('createQuestion/{assignment_id}', 'QuestionController@createQuestion');
+Route::get('updateQuestion/{id}', 'QuestionController@getQuestionUpdate');
+Route::post('saveQuestion', ['as' => 'saveQuestion','uses' => 'QuestionController@saveQuestion']);

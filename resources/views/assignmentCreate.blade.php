@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html >
+	<head>
+        <title>Assignment [Add]</title>
+        <link rel="stylesheet" href="css/list.css">
+		
+		@include('includes.head')
+    </head>
+
+    <body>
+	
+    {{ Form::open(['url' => 'saveAssignment']) }}
+ 			<fieldset>
+ 				<div id="legend">
+				 	<legend class="">Assignment [Add]</legend>
+ 				</div>
+
+ 				<div class="control-group">
+ 					<label class="control-label" for="assignment">Assignment Name</label>
+ 					<div class="controls">
+            {{ Form::text('name', null, 
+                  array('required', 
+                    'class'=>'input-xlarge', 
+                    'placeholder'=>'Assignment')) }}
+ 						<p class="help-block">Assignment name, without spaces</p>
+ 					</div>
+ 				</div>
+ 
+ 				<div class="control-group">
+ 					<label class="control-label" for="description">Description</label>
+					<div class="controls">
+            {{ Form::textarea('description', null, 
+                  array('required', 
+                    'class'=>'input-xlarge', 
+                    'placeholder'=>'Description')) }}
+ 						<p class="help-block">Please input description</p>
+ 					</div>
+ 				</div>
+ 
+ 				<div class="control-group">
+ 					<label class="control-label" for="duedate">Due Date</label>
+ 					<div class="controls">
+            {{ Form::date('duedate', null) }}
+ 						<p class="help-block">Choose Due Date</p>
+					 </div>
+ 				</div>
+ 
+ 				<div class="control-group">
+ 					<label class="control-label" for="status">Status</label>
+ 					<div class="controls">
+            {{ Form::radio('status', "Open", true) }}
+            {{ Form::label('open', 'Open') }}
+            {{ Form::radio('status', "Close", false) }}
+            {{ Form::label('closed', 'Closed') }}
+					 </div>
+ 				</div>
+ 
+ 				<div class="control-group">
+ 					<div class="controls">
+ 						<button class="btn btn-success">Save</button>
+				 	</div>
+				 </div>
+ 			</fieldset>
+    {{ Form::close()  }}
+	
+	
+	</body>
+	
+	
+</html>

@@ -2,18 +2,11 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>dash</title>
+<title>Assignment</title>
+
+@include('includes.head')
 
 <link rel="stylesheet" href="css/list.css">
-
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 </head>
 
@@ -30,9 +23,8 @@
 			<th class="col-md-3">Name</th>
 			<th class="col-md-3">Description</th>
 			<th class="col-md-2">Due Date</th>
-			<th class="col-md-2">Status</th>
-			<th class="col-md-1">Edit</th>
-			<th class="col-md-1">Delete</th>
+			<th class="col-md-2">Status</th>			
+			<th class="col-md-2"></th>
 		  </tr>
 		</thead>
 		<tbody>
@@ -43,8 +35,10 @@
 			<td>{{$assignment->description}}</td>
 			<td>{{$assignment->duedate}}</td>
 			<td>{{$assignment->active ? "ACTIVE" : "INACTIVE"}}</td>
-			<td></td>
-			<td></td>
+			<td>
+				<a href="updateAssignment/{{ $assignment->id }}"><span class="glyphicon glyphicon-cog"></span></a>						
+				<a href="deleteAssignment/{{ $assignment->id }}"><span class="glyphicon glyphicon-trash"></span></a>
+			</td>
 		@endforeach
 		</tbody>
 		</table>
