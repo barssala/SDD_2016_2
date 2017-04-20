@@ -53,6 +53,7 @@
 			<div class="control-group">
 				<div class="controls">
 					<button class="btn btn-success">Save</button>
+					<button class="btn btn-success" onclick="window.location='{{ url("home") }}'">Back</button>
 				</div>
 			 </div>
 		</fieldset>

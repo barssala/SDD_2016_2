@@ -16,7 +16,8 @@
 		<div class="space"></div>				
 		<button type="button" class="btn pull-right" onclick="window.location='{{ url("createAssignment") }}'">New Assignment</button>
 		<div class="clearfix"></div>
-		<div class="space"></div>		
+		<div class="space">
+		<button type="button" class="btn pull-right" onclick="window.location='{{ url("home") }}'">Back</button></div>
 		<table class="table table-hover">
 		<thead>
 		  <tr>
