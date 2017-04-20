@@ -93,6 +93,9 @@ CREATE TABLE `sub_comment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `role` (`name`, `created_at`, `updated_at`) VALUES ('ADMIN', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO `role` (`name`, `created_at`, `updated_at`) VALUES ('PROFESSOR', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO `role` (`name`, `created_at`, `updated_at`) VALUES ('STUDENT', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO `role` (`name`, `created_at`, `updated_at`) VALUES ('TA', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 INSERT INTO `user` ( `role_id`, `user`, `password`, `firstname`, `lastname`, `email`, `active`, `deleted`, `regisdate`, `created_at`, `updated_at`) VALUES ( '1', 'admin', '$2y$10$6YdJ84G0ZY8n1oKnir.Hw.vZcLrH19r1./w.xEGu1u1zFFq9M4cJ2', 'admin', 'admin', 'admin@admin.com', '1', '0', '2017-04-03', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 

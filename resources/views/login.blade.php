@@ -30,6 +30,7 @@
 	</head>
 
     <body>
+        @include('includes.head')
          <div class="container">
 
 		           <div class="row">

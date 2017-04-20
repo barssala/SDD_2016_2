@@ -57,10 +57,23 @@
                             {{ Form::text('username', null, 
                                   array('required', 
                                     'class'=>'form-control',
-                                    'style'=>'text-align: right', 
+                                    'style'=>'text-align: left', 
                                     'placeholder'=>'Username')) }}
 						</div>            
 					</div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="userName">Password : </label>           
+                        </div>
+                        <div class="col-xs-4 ">
+                            <!-- <input type="text" class="form-control" id="userName" name="userName" style="text-align: right"> -->
+                            {{ Form::password('password', null, 
+                                  array('required', 
+                                    'class'=>'form-control',
+                                    'style'=>'text-align: right', 
+                                    'placeholder'=>'Username')) }}
+                        </div>            
+                    </div>
 
 					<div class="row">
 						<div class="col-md-2">

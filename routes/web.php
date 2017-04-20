@@ -36,7 +36,7 @@ Route::get('deleteQuestion/{id}', 'QuestionController@delete');
 
 Route::get('/', function () {
     if(Auth::check()) {
-        return redirect('/user/1');
+        return redirect('/home');
     } else {
         return view('login');
     }
@@ -50,5 +50,6 @@ Route::get('logout', [ 'as' => 'logout', 'uses' => 'LoginController@getLogout'])
 Route::get('home', [ 'as' => 'logout', 'uses' => 'DashboardController@home']);
 
 Route::get('register', [ 'as' => 'register', 'uses' => 'RegisterController@register']);
+Route::post('registerNewUser', [ 'as' => 'registerNewUser', 'uses' => 'RegisterController@registerNewUser']);
 
 

@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
 use Session;
 use App\Http\Requests\RegisterUserFormRequest;
+use App\models\User;
+use DateTime;
 
 class RegisterController extends Controller
 {
@@ -34,11 +36,37 @@ class RegisterController extends Controller
     }
 
     public function registerNewUser(RegisterUserFormRequest $request) {
-        var_dump($request->username);
+        /*var_dump($request->username);
+        var_dump($request->password);
         var_dump($request->firstname);
         var_dump($request->lastname);
         var_dump($request->email);
-        var_dump($request->role);
+        var_dump($request->role);*/
+
+        $role_id = 0; // admin
+        if ($request->role == 'admin'){
+            $role_id = 1;
+        } else if ($request->role == 'teacher'){
+            $role_id = 2;
+        } else if ($request->role == 'student'){
+            $role_id = 3;
+        } else if ($request->role == 'ta'){
+            $role_id = 4;
+        }
+
+        $user = new User;
+        $user->user = $request->username;
+        $user->password = bcrypt($request->password);
+        $user->firstname = $request->firstname;
+        $user->lastname = $request->lastname;
+        $user->email = $request->email;
+        $user->role_id = $role_id;
+        $user->active = true;
+        $user->deleted = false;
+        $user->regisdate = new DateTime();
+        $user->save();
+        // return Redirect::to('login');
+        return redirect()->route('login', ['user' => $user]);
 
     }
 }
