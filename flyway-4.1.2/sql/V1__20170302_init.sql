@@ -59,13 +59,14 @@ CREATE TABLE `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `role_id` INT NOT NULL,
   `user` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
+  `password` TEXT NOT NULL,
   `firstname` varchar(50) NOT NULL,
   `lastname` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `active` BOOLEAN NOT NULL,
   `deleted` BOOLEAN NOT NULL,
   `regisdate` date NOT NULL,
+  `remember_token` TEXT NULL,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   primary key (id)
@@ -91,7 +92,9 @@ CREATE TABLE `sub_comment` (
   primary key (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `role` (`id`, `name`, `createdate`, `lastupdate`) VALUES (NULL, 'ADMIN', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO `role` (`name`, `created_at`, `updated_at`) VALUES ('ADMIN', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+INSERT INTO `user` ( `role_id`, `user`, `password`, `firstname`, `lastname`, `email`, `active`, `deleted`, `regisdate`, `created_at`, `updated_at`) VALUES ( '1', 'admin', '$2y$10$6YdJ84G0ZY8n1oKnir.Hw.vZcLrH19r1./w.xEGu1u1zFFq9M4cJ2', 'admin', 'admin', 'admin@admin.com', '1', '0', '2017-04-03', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 ALTER TABLE `user` ADD CONSTRAINT `role_fk_id` FOREIGN KEY (`role_id`) REFERENCES `role`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
@@ -111,5 +114,3 @@ ALTER TABLE `sub_comment` ADD CONSTRAINT `sub_comment_fk_user_id` FOREIGN KEY (`
 
 ALTER TABLE `sub_comment` ADD CONSTRAINT `sub_comment_fk_comment_id` FOREIGN KEY (`comment_id`) REFERENCES `comment`(`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
 
-
-INSERT INTO `user` (`id`, `role_id`, `user`, `password`, `firstname`, `lastname`, `email`, `active`, `deleted`, `regisdate`, `createdate`, `lastupdate`) VALUES (NULL, '1', 'admin', 'admin', 'admin', 'admin', 'admin@admin.com', '1', '0', '2017-04-03', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
