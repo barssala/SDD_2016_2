@@ -23,10 +23,17 @@ Route::get('user/{id}', 'UserController@showProfile');
 
 Route::get('getAssignments', 'AssignmentController@getAssignments');
 Route::get('createAssignment', 'AssignmentController@createAssignment');
-Route::get('deleteAssignment/{id}', 'AssignmentController@delete');
-Route::get('updateAssignment/{id}', 'AssignmentController@getAssignmentUpdate');
+Route::get('editAssignment/{id}', 'AssignmentController@editAssignment');
+
 Route::post('saveAssignment', ['as' => 'saveAssignment','uses' => 'AssignmentController@saveAssignment']);
+Route::post('updateAssignment/{id}', ['as' => 'updateAssignment','uses' => 'AssignmentController@update']);
+Route::get('deleteAssignment/{id}', 'AssignmentController@delete');
+
+
 
 Route::get('createQuestion/{assignment_id}', 'QuestionController@createQuestion');
-Route::get('updateQuestion/{id}', 'QuestionController@getQuestionUpdate');
-Route::post('saveQuestion', ['as' => 'saveQuestion','uses' => 'QuestionController@saveQuestion']);
+Route::get('editQuestion/{id}', 'QuestionController@editQuestion');
+
+Route::post('saveQuestion/{assignment_id}', ['as' => 'saveQuestion','uses' => 'QuestionController@saveQuestion']);
+Route::post('updateQuestion/{id}', ['as' => 'updateQuestion','uses' => 'QuestionController@update']);
+Route::get('deleteQuestion/{id}', 'QuestionController@delete');

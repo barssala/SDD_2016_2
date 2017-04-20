@@ -36,7 +36,7 @@
 			<td>{{$assignment->duedate}}</td>
 			<td>{{$assignment->active ? "ACTIVE" : "INACTIVE"}}</td>
 			<td>
-				<a href="updateAssignment/{{ $assignment->id }}"><span class="glyphicon glyphicon-cog"></span></a>						
+				<a href="editAssignment/{{ $assignment->id }}"><span class="glyphicon glyphicon-cog"></span></a>						
 				<a href="deleteAssignment/{{ $assignment->id }}"><span class="glyphicon glyphicon-trash"></span></a>
 			</td>
 		@endforeach

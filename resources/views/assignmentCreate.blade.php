@@ -48,10 +48,10 @@
  				<div class="control-group">
  					<label class="control-label" for="status">Status</label>
  					<div class="controls">
-            {{ Form::radio('status', "Open", true) }}
-            {{ Form::label('open', 'Open') }}
-            {{ Form::radio('status', "Close", false) }}
-            {{ Form::label('closed', 'Closed') }}
+            {{ Form::radio('status', "ACTIVE", true) }}
+            {{ Form::label('open', 'ACTIVE') }}
+            {{ Form::radio('status', "INACTIVE", false) }}
+            {{ Form::label('closed', 'INACTIVE') }}
 					 </div>
  				</div>
  

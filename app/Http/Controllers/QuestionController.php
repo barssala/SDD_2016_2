@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use View;
+
 use App\Http\Requests\QuestionFormRequest;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -10,31 +11,26 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use App\models\Question;
+use App\models\TestCase;
 
 class QuestionController extends BaseController {
-
-    // public function getAssignments()
-    // {
-        // $assignments = Assignment::all();
-        // return View::make('assignmentlist', array('assignments' => $assignments));
-    // }
 
     public function createQuestion($assignment_id) {
         return View::make('questionCreate', array('assignment_id' => $assignment_id));
     }
 
-	public function getQuestionUpdate($id)
+	public function editQuestion($id)
     {
         $question  = Question::find($id);
-		$testcases = TestCases::find($id);
+		$testCases = TestCase::find($id);
 		
-        return View::make('questionUpdate', compact('question','testcases'));
+        return View::make('questionEdit', compact('question','testCases'));
     }
 	
-    public function saveQuestion(QuestionFormRequest $request) {
+    public function saveQuestion(QuestionFormRequest $request,$assignment_id) {
 		
         $question = new Question;
-		$question->assignment_id = $request->assignment_id;
+		$question->assignment_id = $assignment_id;
         $question->name = $request->name;
         $question->description = $request->description;
 		$question->guideline = $request->guideline;
@@ -43,10 +39,32 @@ class QuestionController extends BaseController {
         $question->deleted = false;
         $question->save();
 		
-		return redirect('updateQuestion/'.$question->id);
+		return redirect('editQuestion/'.$question->id);
 		
     }
 
+	public function update(QuestionFormRequest $request,$id){
+		
+        $question  = question::find($id);
+		
+        $question->name = $request->name;
+        $question->description = $request->description;
+		$question->guideline = $request->guideline;
+		$question->score = $request->score;
+        $question->active = $request->status == 'ACTIVE' ? 1 : 0;  
+		
+        $question->save();
+		
+        return redirect('editQuestion/'.$question->id);
+    }
+	
+	public function delete($id){
+		
+		$question = question::destroy($id);
+	
+        return redirect()->back();
+    }
+	
 }
 
 ?>
