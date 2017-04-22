@@ -20,7 +20,7 @@
         <a class="nav-link" href="#">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">User Management</a>
+        <a class="nav-link" href="{{ URL::to('userLists') }}">User Management</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Pricing</a>

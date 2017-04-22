@@ -27,7 +27,7 @@
 
         <div class="row pad-botm">
             <div class="col-md-12">
-                <h4 class="header-line">REGISTER NEW USER</h4>  
+                <h4 class="header-line">CREATE NEW USER</h4>  
             </div>
         </div>
 
@@ -35,7 +35,7 @@
 		<div class="col-md-12">
 
                     <!-- Advanced Tables -->
-        {{ Form::open(['url' => 'registerNewUser']) }}
+        {{ Form::open(['url' => 'createNewUser']) }}
 		 <div class="panel panel-default">			
 			<div class="panel-body">	
 			    <div class="table-responsive">
@@ -146,10 +146,10 @@
 				</br>
 				<div class="row">		
 					<div style="padding-left: 200px">
-						<button onclick="window.location='{{ URL::to('login') }}'" id="btnBack" class="btn btn-primary btn-sm" >Back</button>
+						<button onclick="window.location='{{ URL::to('userLists') }}'" id="btnBack" class="btn btn-primary btn-sm" >Back</button>
 						<!-- <button type="button" class="btn btn-sm btn-success" >Save</button> -->
                         {{ Form::submit('Save', array('class' => 'btn btn-sm btn-success')) }}
-						<button type="button" class="btn btn-sm btn-warning" onclick="window.location='{{ URL::to('register') }}'">Cancel</button>    					
+						<button type="button" class="btn btn-sm btn-warning" onclick="window.location='{{ URL::to('createUser') }}'">Cancel</button>    					
 					</div> 
 				</div>
 			</div>

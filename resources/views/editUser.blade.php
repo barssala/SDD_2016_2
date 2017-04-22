@@ -4,7 +4,7 @@
     <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
-    <title>Register</title>
+    <title>Edit User</title>
     <!-- BOOTSTRAP CORE STYLE  -->
     <!-- <link href="assets/css/bootstrap.css" rel="stylesheet" /> -->
     <link href="<?php echo asset('css/bootstrap.css') ?>" rel="stylesheet" />
@@ -27,7 +27,7 @@
 
         <div class="row pad-botm">
             <div class="col-md-12">
-                <h4 class="header-line">REGISTER NEW USER</h4>  
+                <h4 class="header-line">EDIT USER {{$user->user}}</h4>  
             </div>
         </div>
 
@@ -35,7 +35,8 @@
 		<div class="col-md-12">
 
                     <!-- Advanced Tables -->
-        {{ Form::open(['url' => 'registerNewUser']) }}
+        <!-- {{ Form::open(['url' => ['updateUser', $user->id], 'method' => 'post']) }} -->
+        {{ Form::open(['url' => ['updateUser',$user->id]]) }}
 		 <div class="panel panel-default">			
 			<div class="panel-body">	
 			    <div class="table-responsive">
@@ -54,26 +55,14 @@
 						</div>
 						<div class="col-xs-4 ">
 							<!-- <input type="text" class="form-control" id="userName" name="userName" style="text-align: right"> -->
-                            {{ Form::text('username', null, 
+                            {{ Form::text('username', $user->user,
                                   array('required', 
                                     'class'=>'form-control',
-                                    'style'=>'text-align: left', 
+                                    'style'=>'text-align: left',
+                                    'readonly', 
                                     'placeholder'=>'Username')) }}
 						</div>            
 					</div>
-                    <div class="row">
-                        <div class="col-md-2">
-                            <label for="userName">Password : </label>           
-                        </div>
-                        <div class="col-xs-4 ">
-                            <!-- <input type="text" class="form-control" id="userName" name="userName" style="text-align: right"> -->
-                            {{ Form::password('password', null, 
-                                  array('required', 
-                                    'class'=>'form-control',
-                                    'style'=>'text-align: right', 
-                                    'placeholder'=>'Username')) }}
-                        </div>            
-                    </div>
 
 					<div class="row">
 						<div class="col-md-2">
@@ -81,7 +70,7 @@
 						</div>
 						<div class="col-xs-4 ">
 							<!-- <input type="text" class="form-control" id="Firstname" name="Firstname" > -->
-                        {{ Form::text('firstname', null, 
+                        {{ Form::text('firstname', $user->firstname, 
                                   array('required', 
                                     'class'=>'form-control')) }}
 						</div>            
@@ -92,7 +81,7 @@
 						</div>
 						<div class="col-xs-4 ">
 							<!-- <input type="text" class="form-control" id="lastname" name="lastname" > -->
-                            {{ Form::text('lastname', null, 
+                            {{ Form::text('lastname', $user->lastname, 
                                   array('required', 
                                     'class'=>'form-control')) }}
 						</div>            
@@ -103,14 +92,15 @@
 						</div>
 						<div class="col-xs-4 ">
 							<!-- <input type="text" class="form-control" id="Email" name="Email" > -->
-                            {{ Form::text('email', null, 
+                            {{ Form::text('email', $user->email, 
                                   array('required', 
+                                    'readonly',
                                     'class'=>'form-control')) }}
 						</div>            
 					</div>						
 					<div class="row">
 						<div class="col-md-2">
-							<label for="role">Type : </label>			
+							<label for="role">Type : {{$role_name}}</label>			
 						</div>
 						<!-- <div class="col-xs-4 ">
 							<select class="btn dropdown-toggle btn-default" id="role" name="role" style="text-align: center">
@@ -124,39 +114,26 @@
                                'teacher' => 'Professor',
                                'student' => 'Student',
                                'ta' => 'TA'],
-                               null,
+                               $role_name,
                                ['class' => 'btn dropdown-toggle btn-default',
                                 'style' => 'text-align: center']
                             ) }}
 						</div>            
-					</div> 	
-					<!-- <div class="row">
-						<div class="col-md-2">
-							<label for="faculty">Faculty : </label>			
-						</div>
-						<div class="col-xs-4 ">
-							<select class="btn dropdown-toggle btn-default" id="faculty" name="faculty" style="text-align: center"">
-							<option value="">-----Select Faculty-----</option>
-							  <option value="en">Engineering</option>
-							  <option value="sc">Science</option>
-							  <option value="ed">Education</option>
-							</select>
-						</div>            
-					</div> -->
+					</div>
 				</br>
 				<div class="row">		
 					<div style="padding-left: 200px">
-						<button onclick="window.location='{{ URL::to('login') }}'" id="btnBack" class="btn btn-primary btn-sm" >Back</button>
 						<!-- <button type="button" class="btn btn-sm btn-success" >Save</button> -->
                         {{ Form::submit('Save', array('class' => 'btn btn-sm btn-success')) }}
-						<button type="button" class="btn btn-sm btn-warning" onclick="window.location='{{ URL::to('register') }}'">Cancel</button>    					
 					</div> 
 				</div>
 			</div>
 	       </div>
 
             {{ Form::close()  }}
-           </div>			
+
+            <button onclick="window.location='{{ URL::to('userLists') }}'" id="btnBack" class="btn btn-primary btn-sm" >Back</button>
+           </div>
 		   <!--End Advanced Tables -->
 
 </div>
