@@ -52,4 +52,9 @@ Route::get('home', [ 'as' => 'logout', 'uses' => 'DashboardController@home']);
 Route::get('register', [ 'as' => 'register', 'uses' => 'RegisterController@register']);
 Route::post('registerNewUser', [ 'as' => 'registerNewUser', 'uses' => 'RegisterController@registerNewUser']);
 
-
+Route::get('userLists', [ 'as' => 'userLists', 'uses' => 'UserController@userLists']);
+Route::get('createUser', [ 'as' => 'createUser', 'uses' => 'UserController@createUser']);
+Route::post('createNewUser', [ 'as' => 'createNewUser', 'uses' => 'UserController@createNewUser']);
+Route::get('editUser/{id}', [ 'as' => 'editUser', 'uses' => 'UserController@editUser']);
+Route::post('updateUser/{id}', [ 'as' => 'updateUser', 'uses' => 'UserController@updateUser']);
+Route::get('deleteUser/{id}', 'UserController@deleteUser');
