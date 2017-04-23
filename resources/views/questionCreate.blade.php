@@ -7,7 +7,7 @@
 
     <body>
 	
-    {{ Form::open(['url' => 'saveQuestion']) }}
+    {{ Form::open(['url' => ['saveQuestion',$assignment_id[0]]]) }}
 		<fieldset>
 			<div id="legend">
 				<legend class="">Question [Add]</legend>
