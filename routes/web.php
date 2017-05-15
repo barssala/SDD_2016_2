@@ -32,6 +32,12 @@ Route::post('saveQuestion/{assignment_id}', ['as' => 'saveQuestion','uses' => 'Q
 Route::post('updateQuestion/{id}', ['as' => 'updateQuestion','uses' => 'QuestionController@update']);
 Route::get('deleteQuestion/{id}', 'QuestionController@delete');
 
+Route::get('createTestCase/{question_id}', 'TestCaseController@createTestCase');
+Route::get('editTestCase/{id}', 'TestCaseController@editTestCase');
+
+Route::post('saveTestCase/{question_id}', ['as' => 'saveTestCase','uses' => 'TestCaseController@saveTestCase']);
+Route::post('updateTestCase/{id}', ['as' => 'updateTestCase','uses' => 'TestCaseController@update']);
+Route::get('deleteTestCase/{id}', 'TestCaseController@delete');
 //Auth::routes();
 
 Route::get('/', function () {
