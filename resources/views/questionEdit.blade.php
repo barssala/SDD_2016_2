@@ -86,11 +86,11 @@
 
 	<div class="container">
 		<h2>Table Of Test Case</h2>
-			<input type="hidden" id="json_input" name="json_input" value="{{$testCase->input}}">
-			<input type="hidden" id="json_output" name="json_output" value="{{$testCase->output}}">
 		@if(count($testCase) == 0)
 			<a href="../createTestCase/{{ $question->id }}" class="btn btn-success">Add New</a>
 		@else
+			<input type="hidden" id="json_input" name="json_input" value="{{$testCase->input}}">
+			<input type="hidden" id="json_output" name="json_output" value="{{$testCase->output}}">
 			<a href="../editTestCase/{{ $testCase->id }}"><span class="glyphicon glyphicon-cog"></span></a>
 			<a href="../deleteTestCase/{{ $testCase->id }}"><span class="glyphicon glyphicon-trash"></span></a>
 		@endif
