@@ -13,8 +13,8 @@
 		        $('#testCase-table tbody').append(
 							'<tr>'+
 								'<td>'+ (i+1) +'</td>'+
-								'<td>'+ json_input[i].value +'</td>'+
-								'<td>'+ json_output[i].value +'</td>'+
+								'<td>'+ json_input[i].value + '(' + json_input[i].type +')</td>'+
+								'<td>'+ json_output[i].value + '(' + json_output[i].type +')</td>'+
 							'</tr>'
 						);
 		      }
@@ -89,6 +89,7 @@
 		@if(count($testCase) == 0)
 			<a href="../createTestCase/{{ $question->id }}" class="btn btn-success">Add New</a>
 		@else
+			<a href="../createTestCase/{{ $question->id }}" class="btn btn-success">Add New</a>
 			<input type="hidden" id="json_input" name="json_input" value="{{$testCase->input}}">
 			<input type="hidden" id="json_output" name="json_output" value="{{$testCase->output}}">
 			<a href="../editTestCase/{{ $testCase->id }}"><span class="glyphicon glyphicon-cog"></span></a>
