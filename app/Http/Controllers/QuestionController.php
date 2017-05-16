@@ -23,10 +23,11 @@ class QuestionController extends BaseController {
     {
         $question  = Question::find($id);
         //$testCase = TestCase::where('question_id', $id);
-	    $testCase = TestCase::where('question_id', $id)->first();
-        // $testCases = TestCase::where('question_id', $id)->get();
-        //return View::make('questionEdit', array('question' => $question, 'testCase' => $testCase));
-        return View::make('questionEdit', compact('question', 'testCase'));
+	    // $testCase = TestCase::where('question_id', $id)->first();
+        $testCases = TestCase::where('question_id', $id)->get();
+        // return View::make('questionEdit', array('question' => $question, 'testCase' => $testCase));
+        // var_dump($testCases);
+        return View::make('questionEdit', compact('question', 'testCases'));
     }
 
     public function saveQuestion(QuestionFormRequest $request,$assignment_id) {

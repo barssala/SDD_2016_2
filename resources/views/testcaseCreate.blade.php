@@ -7,20 +7,19 @@
 		$( document ).ready(function() {
 			var no = 2;
 			$("#addInput").click(function() {
-				$('#input').append('</br><input required="required" class="input-xlarge" placeholder="Input" name="input_'+no+'"" id="input_'+no+'"" type="text">');
-				$('#input').append('<select required="required" class="input-xlarge" name="input_type_'+no+'"" id="input_type_'+no+'""><option value="integer">integer</option><option value="double">double</option><option value="string">string</option><option value="list">list</option></select>');
+				$('#input').append('</br><input required="required" class="input-xlarge" placeholder="Input" name="input_'+no+'" id="input_'+no+'" type="text">');
+				$('#input').append('<select required="required" class="btn dropdown-toggle btn-default" name="input_type_'+no+'" id="input_type_'+no+'"><option value="integer">integer</option><option value="double">double</option><option value="string">string</option><option value="list">list</option></select>');
 				no +=1;
 			});
 
 			var noout = 2;
 			$("#addOutput").click(function() {
-				$('#output').append('</br><input required="required" class="input-xlarge" placeholder="Output" name="output_'+no+'"" id="output_'+no+'"" type="text">');
-				$('#output').append('<select required="required" class="input-xlarge" name="output_type_'+no+'"" id="output_'+no+'""><option value="integer">integer</option><option value="double">double</option><option value="string">string</option><option value="list">list</option></select>');
+				$('#output').append('</br><input required="required" class="input-xlarge" placeholder="Output" name="output_'+noout+'" id="output_'+noout+'" type="text">');
+				$('#output').append('<select required="required" class="btn dropdown-toggle btn-default" name="output_type_'+noout+'" id="output_type_'+noout+'"><option value="integer">integer</option><option value="double">double</option><option value="string">string</option><option value="list">list</option></select>');
 				noout +=1;
 			});
 
 			$("#save").click(function() {
-
 				var stringInput = "["
 				for (i = 0; i < no - 1; i++) {
 					var value = document.getElementById("input_" + (i+1)).value;
@@ -38,15 +37,6 @@
 					stringOutput = stringOutput + json;
 				}
 				stringOutput = stringOutput.substring(0, stringOutput.length - 1) + ']';
-
-				//console.log(stringInput);
-				//console.log(stringOutput);
-
-				var inputJson = JSON.stringify( $("#input :input").serializeArray() );
-				var outputJson = JSON.stringify( $("#output :input").serializeArray() );
-
-
-				//console.log("inputJson:" + inputJson);
 
 				$("#json_input").val(stringInput);
 				$("#json_output").val(stringOutput);

@@ -6,17 +6,44 @@
 
 				<script>
 				$( document ).ready(function() {
-		      var json_input = $.parseJSON( $('#json_input').val() );
-		      var json_output = $.parseJSON( $('#json_output').val() );
-		      var inputNumber = json_input.length;
-		      for( var i=0; i < inputNumber; i++ ){
-		        $('#testCase-table tbody').append(
+
+					var tcId_arr = [@foreach ($testCases as $no => $testCase)
+											   	'{!! $testCase->id !!}',
+												 @endforeach ];
+				 console.log(tcId_arr);
+					var tcInput_arr = [@foreach ($testCases as $no => $testCase)
+													   	'{!! $testCase->input !!}',
+														 @endforeach ];
+				console.log(tcInput_arr);
+				 var tcOutput_arr = [@foreach ($testCases as $no => $testCase)
+													   	'{!! $testCase->output !!}',
+														 @endforeach ];
+				 console.log(tcOutput_arr);
+
+					var tcNo = tcId_arr.length;
+					for (var i = 0; i < tcNo; i++) {
+						$('#testCase-table tbody').append(
 							'<tr>'+
 								'<td>'+ (i+1) +'</td>'+
-								'<td>'+ json_input[i].value + '(' + json_input[i].type +')</td>'+
-								'<td>'+ json_output[i].value + '(' + json_output[i].type +')</td>'+
-							'</tr>'
-						);
+								'<td></td>'+
+								'<td></td>'+
+								'<td><a href="../editTestCase/'+tcId_arr[i]+'"><span class="glyphicon glyphicon-cog"></span></a>'+
+										'<a href="../deleteTestCase/'+tcId_arr[i]+'"><span class="glyphicon glyphicon-trash"></span></a></td>'+
+							'</tr>');
+
+						var json_input = $.parseJSON( tcInput_arr[i] );
+ 	 		      var json_output = $.parseJSON( tcOutput_arr[i] );
+ 	 		      var inputNumber = json_input.length;
+ 	 		      for( var j=0; j < inputNumber; j++ ){
+ 	 		        $('#testCase-table tbody').append(
+ 	 							'<tr>'+
+ 	 								'<td></td>'+
+ 	 								'<td>'+ json_input[j].value + '(' + json_input[j].type +')</td>'+
+ 	 								'<td>'+ json_output[j].value + '(' + json_output[j].type +')</td>'+
+									'<td></td>'+
+ 	 							'</tr>'
+ 	 						);
+						}
 		      }
 				});
 				</script>
@@ -86,15 +113,7 @@
 
 	<div class="container">
 		<h2>Table Of Test Case</h2>
-		@if(count($testCase) == 0)
-			<a href="../createTestCase/{{ $question->id }}" class="btn btn-success">Add New</a>
-		@else
-			<a href="../createTestCase/{{ $question->id }}" class="btn btn-success">Add New</a>
-			<input type="hidden" id="json_input" name="json_input" value="{{$testCase->input}}">
-			<input type="hidden" id="json_output" name="json_output" value="{{$testCase->output}}">
-			<a href="../editTestCase/{{ $testCase->id }}"><span class="glyphicon glyphicon-cog"></span></a>
-			<a href="../deleteTestCase/{{ $testCase->id }}"><span class="glyphicon glyphicon-trash"></span></a>
-		@endif
+		<a href="../createTestCase/{{ $question->id }}" class="btn btn-success">Add New</a>
 		<table id = "testCase-table" class="table table-hover">
 			<thead>
 				<tr>
@@ -102,22 +121,9 @@
 					<th>Input</th>
 					<th>Outpput</th>
 					<th></th>
-					<th></th>
 				</tr>
 			</thead>
 			<tbody>
-				{{-- @if(!is_null($testCases))
-					@foreach ($testCases as $no => $testCase)
-					  <tr>
-						<td>{{$no+1}}</td>
-						<td>{{$testCase->input}}</td>
-						<td>{{$testCase->output}}</td>
-						<td>
-							<a href="../editTestCase/{{ $testCase->id }}"><span class="glyphicon glyphicon-cog"></span></a>
-							<a href="../deleteTestCase/{{ $testCase->id }}"><span class="glyphicon glyphicon-trash"></span></a>
-						</td>
-					@endforeach
-				@endif --}}
 			</tbody>
 		</table>
 	</div>
