@@ -16,7 +16,7 @@
     <link href="<?php echo asset('css/style.css') ?>" rel="stylesheet" />
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="{{asset('js/laravel.js')}}"></script>
@@ -32,9 +32,7 @@
                 </button>
                 <a class="navbar-brand" href="index.php">
                 </a>
-
             </div>
-
             <div class="right-div">
                 <a href="{{ URL::to('logout') }}" class="btn btn-danger pull-right">LOG ME OUT</a>
             </div>
