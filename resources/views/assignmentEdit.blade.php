@@ -92,7 +92,7 @@
 				</tbody>
 			</table>
 		</div>	
+		@include('includes.footer')
 	</body>
-	
 	
 </html>
