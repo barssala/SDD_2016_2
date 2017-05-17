@@ -8,7 +8,8 @@
     </head>
 
     <body>
-	
+	    <div class="content-wrapper">
+        <div class="container">
     {{ Form::open(['url' => 'saveAssignment']) }}
  			<fieldset>
  				<div id="legend">
@@ -63,7 +64,9 @@
 				 </div>
  			</fieldset>
     {{ Form::close()  }}
-	</body>
-	
+    </div>
+    </div>
+    </body>
+
 	
 </html>
