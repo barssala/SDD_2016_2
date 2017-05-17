@@ -22,9 +22,9 @@
 
 </head>
 <body>
-	@include('includes.head')
+@include('includes.head')
      <!-- MENU SECTION END-->
-    <div class="content-wrapper">
+    <div class="content-wrapper">   
          <div class="container">
         <div class="row pad-botm">
             <div class="col-md-12">
@@ -39,8 +39,8 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                              User Management
-                             <button type="button" class="btn pull-right" onclick="window.location='{{ url("createUser") }}'">New Users</button>
-                        <button type="button" class="btn pull-right" onclick="window.location='{{ url("home") }}'">Back</button>
+                        <button type="button" class="btn btn-warning btn-xs pull-right" onclick="window.location='{{ url("home") }}'">Back</button>
+                             <button type="button" class="btn btn-primary btn-xs pull-right" onclick="window.location='{{ url("createUser") }}'">New Users</button>                       
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">

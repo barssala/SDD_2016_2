@@ -2,6 +2,9 @@
 <html>
 <head>
 <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 <title>Dashboard</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -10,8 +13,21 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
 <link rel="stylesheet"  href="css/dashboard.css">
+
+    <!-- BOOTSTRAP CORE STYLE  -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONT AWESOME STYLE  -->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- DATATABLE STYLE  -->
+    <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE  -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <!-- GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
 </head>
 <body>
+
 
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
  <div class="collapse navbar-collapse" id="navbarText">
