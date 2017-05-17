@@ -27,14 +27,14 @@ class TestCaseController extends BaseController {
 
     public function saveTestCase(TestCaseFormRequest $request,$question_id) {
 
-      echo "really";
-      // var_dump($request);
+      // echo "really";
+      //var_dump($request->json_input);
       $testCase = new TestCase;
       $testCase->question_id = $question_id;
       $testCase->input = $request->json_input;
       $testCase->output = $request->json_output;
       $testCase->save();
-		   return redirect('editQuestion/'.$question_id);
+		  return redirect('editQuestion/'.$question_id);
     }
 
 	public function update(TestCaseFormRequest $request,$id){

@@ -6,18 +6,40 @@
 		<script>
 		$( document ).ready(function() {
 			var no = 2;
-			$("#addInputOutput").click(function() {
-				$('#input').append('</br><input required="required" class="input-xlarge" placeholder="Input" name="input_'+no+'"" type="text">');
-				$('#output').append('</br><input required="required" class="input-xlarge" placeholder="Output" name="output_'+no+'"" type="text">');
+			$("#addInput").click(function() {
+				$('#input').append('</br><input required="required" class="input-xlarge" placeholder="Input" name="input_'+no+'" id="input_'+no+'" type="text">');
+				$('#input').append('<select required="required" class="btn dropdown-toggle btn-default" name="input_type_'+no+'" id="input_type_'+no+'"><option value="integer">integer</option><option value="double">double</option><option value="string">string</option><option value="list">list</option></select>');
 				no +=1;
 			});
 
-			$("#save").click(function() {
-				var inputJson = JSON.stringify( $("#input :input").serializeArray() );
-				var outputJson = JSON.stringify( $("#output :input").serializeArray() );
+			var noout = 2;
+			$("#addOutput").click(function() {
+				$('#output').append('</br><input required="required" class="input-xlarge" placeholder="Output" name="output_'+noout+'" id="output_'+noout+'" type="text">');
+				$('#output').append('<select required="required" class="btn dropdown-toggle btn-default" name="output_type_'+noout+'" id="output_type_'+noout+'"><option value="integer">integer</option><option value="double">double</option><option value="string">string</option><option value="list">list</option></select>');
+				noout +=1;
+			});
 
-				$("#json_input").val(inputJson);
-				$("#json_output").val(outputJson);
+			$("#save").click(function() {
+				var stringInput = "["
+				for (i = 0; i < no - 1; i++) {
+					var value = document.getElementById("input_" + (i+1)).value;
+					var type = document.getElementById("input_type_" + (i+1)).value;
+					var json = '{"value":"' + value + '","type":"' + type + '"},';
+					stringInput = stringInput + json;
+				}
+				stringInput = stringInput.substring(0, stringInput.length - 1) + ']';
+
+				var stringOutput = "["
+				for (i = 0; i < noout - 1; i++) {
+					var value = document.getElementById("output_" + (i+1)).value;
+					var type = document.getElementById("output_type_" + (i+1)).value;
+					var json = '{"value":"' + value + '","type":"' + type + '"},';
+					stringOutput = stringOutput + json;
+				}
+				stringOutput = stringOutput.substring(0, stringOutput.length - 1) + ']';
+
+				$("#json_input").val(stringInput);
+				$("#json_output").val(stringOutput);
 			});
 		});
 		</script>
@@ -38,18 +60,37 @@
 			<div class="control-group" style="display:inline-block;" >
 				<label class="control-label" for="testcase">Test Case Input</label>
 				<div id="input">
-					{{ Form::text('input_1', null, array('required', 'class'=>'input-xlarge', 'placeholder'=>'Input')) }}
+					{{ Form::text('input_1', null, array('required', 'id'=>'input_1','class'=>'input-xlarge', 'placeholder'=>'Input')) }}
+					{{ Form::select('input_type_1', [
+                               'integer' => 'integer',
+                               'double' => 'double',
+                               'string' => 'string',
+                               'list' => 'list'],
+                               null,
+                               ['class' => 'btn dropdown-toggle btn-default',
+                                'style' => 'text-align: center', 'id'=>'input_type_1']
+                            ) }}
 				</div>
 			</div>
 
 			<div class="control-group" style="display:inline-block;" >
 				<label class="control-label" for="description">Test Case Output</label>
 				<div id="output">
-					{{ Form::text('output_1', null, array('required', 'class'=>'input-xlarge', 'placeholder'=>'Output')) }}
+					{{ Form::text('output_1', null, array('required', 'class'=>'input-xlarge', 'id'=>'output_1', 'placeholder'=>'Output')) }}
+					{{ Form::select('output_type_1', [
+                               'integer' => 'integer',
+                               'double' => 'double',
+                               'string' => 'string',
+                               'list' => 'list'],
+                               null,
+                               ['class' => 'btn dropdown-toggle btn-default',
+                                'style' => 'text-align: center', 'id'=>'output_type_1']
+                            ) }}
 				</div>
 			</div>
 			</br>
-			<div id="addInputOutput" class="btn btn-success">Add new input/output</div>
+			<div id="addInput" class="btn btn-success">Add new input</div>
+			<div id="addOutput" class="btn btn-success">Add new output</div>
 		</div>
 			<div class="control-group">
 				<div class="controls">
