@@ -10,15 +10,14 @@
 					var tcId_arr = [@foreach ($testCases as $no => $testCase)
 											   	'{!! $testCase->id !!}',
 												 @endforeach ];
-				 console.log(tcId_arr);
+
 					var tcInput_arr = [@foreach ($testCases as $no => $testCase)
 													   	'{!! $testCase->input !!}',
 														 @endforeach ];
-				console.log(tcInput_arr);
+
 				 var tcOutput_arr = [@foreach ($testCases as $no => $testCase)
 													   	'{!! $testCase->output !!}',
 														 @endforeach ];
-				 console.log(tcOutput_arr);
 
 					var tcNo = tcId_arr.length;
 					for (var i = 0; i < tcNo; i++) {
@@ -33,13 +32,18 @@
 
 						var json_input = $.parseJSON( tcInput_arr[i] );
  	 		      var json_output = $.parseJSON( tcOutput_arr[i] );
- 	 		      var inputNumber = json_input.length;
- 	 		      for( var j=0; j < inputNumber; j++ ){
+ 	 		      var maxLen = json_input.length > json_output.length ? json_input.length:json_output.length;
+ 	 		      for( var j=0; j < maxLen; j++ ){
+							var input = '';
+							var output = '';
+							if (typeof json_input[j] !== 'undefined') input = json_input[j].value + '(' + json_input[j].type +')';
+							if (typeof json_output[j] !== 'undefined') output = json_output[j].value + '(' + json_output[j].type +')';
+
  	 		        $('#testCase-table tbody').append(
  	 							'<tr>'+
  	 								'<td></td>'+
- 	 								'<td>'+ json_input[j].value + '(' + json_input[j].type +')</td>'+
- 	 								'<td>'+ json_output[j].value + '(' + json_output[j].type +')</td>'+
+ 	 								'<td>'+ input +'</td>'+
+ 	 								'<td>'+ output +'</td>'+
 									'<td></td>'+
  	 							'</tr>'
  	 						);

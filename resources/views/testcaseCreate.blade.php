@@ -4,44 +4,76 @@
     @include('includes.head')
     <title>Test Case [Add]</title>
 		<script>
-		$( document ).ready(function() {
-			var no = 2;
-			$("#addInput").click(function() {
-				$('#input').append('</br><input required="required" class="input-xlarge" placeholder="Input" name="input_'+no+'" id="input_'+no+'" type="text">');
-				$('#input').append('<select required="required" class="btn dropdown-toggle btn-default" name="input_type_'+no+'" id="input_type_'+no+'"><option value="integer">integer</option><option value="double">double</option><option value="string">string</option><option value="list">list</option></select>');
-				no +=1;
-			});
 
-			var noout = 2;
-			$("#addOutput").click(function() {
-				$('#output').append('</br><input required="required" class="input-xlarge" placeholder="Output" name="output_'+noout+'" id="output_'+noout+'" type="text">');
-				$('#output').append('<select required="required" class="btn dropdown-toggle btn-default" name="output_type_'+noout+'" id="output_type_'+noout+'"><option value="integer">integer</option><option value="double">double</option><option value="string">string</option><option value="list">list</option></select>');
-				noout +=1;
-			});
-
-			$("#save").click(function() {
-				var stringInput = "["
-				for (i = 0; i < no - 1; i++) {
-					var value = document.getElementById("input_" + (i+1)).value;
-					var type = document.getElementById("input_type_" + (i+1)).value;
-					var json = '{"value":"' + value + '","type":"' + type + '"},';
-					stringInput = stringInput + json;
+				String.format = function() {
+			    var theString = arguments[0];
+			    for (var i = 1; i < arguments.length; i++) {
+			        var regEx = new RegExp("\\{" + (i - 1) + "\\}", "gm");
+			        theString = theString.replace(regEx, arguments[i]);
+			    }
+					return theString;
 				}
-				stringInput = stringInput.substring(0, stringInput.length - 1) + ']';
 
-				var stringOutput = "["
-				for (i = 0; i < noout - 1; i++) {
-					var value = document.getElementById("output_" + (i+1)).value;
-					var type = document.getElementById("output_type_" + (i+1)).value;
-					var json = '{"value":"' + value + '","type":"' + type + '"},';
-					stringOutput = stringOutput + json;
-				}
-				stringOutput = stringOutput.substring(0, stringOutput.length - 1) + ']';
+				var input_const = '<div id="input_div">'
+													+'<input required="required" class="input-xlarge" placeholder="Input" id="input_{0}" type="text"></input>'
+													+'<select class="btn dropdown-toggle btn-default" style="text-align: center" id="input_type_{0}""><option value="integer">integer</option><option value="double">double</option><option value="string">string</option><option value="list">list</option></select>'
+													+'<span class="glyphicon glyphicon-trash" style="cursor:pointer"></span>'
+													+'</div>';
+				var ouput_const = '<div id="output_div">'
+													+'<input required="required" class="input-xlarge" placeholder="Output" id="output_{0}" type="text"></input>'
+													+'<select class="btn dropdown-toggle btn-default" style="text-align: center"  id="output_type_{0}"><option value="integer">integer</option><option value="double">double</option><option value="string">string</option><option value="list">list</option></select>'
+													+'<span class="glyphicon glyphicon-trash" style="cursor:pointer"></span>'
+													+'</div>';
 
-				$("#json_input").val(stringInput);
-				$("#json_output").val(stringOutput);
+			$( document ).ready(function() {
+				var no = 2;
+				$("#addInput").click(function() {
+					var input_str = String.format(input_const,no);
+					$('#input').append(input_str);
+					no +=1;
+				});
+
+				var noout = 2;
+				$("#addOutput").click(function() {
+					var output_str = String.format(ouput_const,noout);
+					$('#output').append(output_str);
+					noout +=1;
+				});
+				//remove input output
+				$('#input').on('click', 'span', function(){
+					$(this).parent("div").remove();
+				});
+
+				$('#output').on('click', 'span', function(){
+					$(this).parent("div").remove();
+				});
+				//
+
+				$("#save").click(function() {
+					var stringInput = "[";
+
+					$("#input div").each(function(){
+						var value = $(this).children("input").val();
+						var type = $(this).children("select").val();
+						var json = '{"value":"' + value + '","type":"' + type + '"},';
+						stringInput = stringInput + json;
+					});
+					stringInput = stringInput.substring(0, stringInput.length - 1) + ']';
+
+					var stringOutput = "[";
+
+					$('#output div').each(function(){
+						var value = $(this).children("input").val();
+						var type = $(this).children("select").val();
+						var json = '{"value":"' + value + '","type":"' + type + '"},';
+						stringOutput = stringOutput + json;
+					});
+					stringOutput = stringOutput.substring(0, stringOutput.length - 1) + ']';
+
+					$("#json_input").val(stringInput);
+					$("#json_output").val(stringOutput);
+				});
 			});
-		});
 		</script>
   </head>
 
@@ -57,9 +89,10 @@
 			<input type="hidden" id="json_output" name="json_output" value="">
 
 			<div class="io-box">
-			<div class="control-group" style="display:inline-block;" >
+			<div class="control-group" style="display:inline-block; vertical-align: top;" >
 				<label class="control-label" for="testcase">Test Case Input</label>
 				<div id="input">
+					<div id="input_div">
 					{{ Form::text('input_1', null, array('required', 'id'=>'input_1','class'=>'input-xlarge', 'placeholder'=>'Input')) }}
 					{{ Form::select('input_type_1', [
                                'integer' => 'integer',
@@ -70,12 +103,15 @@
                                ['class' => 'btn dropdown-toggle btn-default',
                                 'style' => 'text-align: center', 'id'=>'input_type_1']
                             ) }}
+					<span class="glyphicon glyphicon-trash" style="cursor:pointer"></span>
+					</div>
 				</div>
 			</div>
 
-			<div class="control-group" style="display:inline-block;" >
+			<div class="control-group" style="display:inline-block; vertical-align: top;" >
 				<label class="control-label" for="description">Test Case Output</label>
 				<div id="output">
+					<div id="output_div">
 					{{ Form::text('output_1', null, array('required', 'class'=>'input-xlarge', 'id'=>'output_1', 'placeholder'=>'Output')) }}
 					{{ Form::select('output_type_1', [
                                'integer' => 'integer',
@@ -86,6 +122,8 @@
                                ['class' => 'btn dropdown-toggle btn-default',
                                 'style' => 'text-align: center', 'id'=>'output_type_1']
                             ) }}
+					<span class="glyphicon glyphicon-trash" style="cursor:pointer"></span>
+					</div>
 				</div>
 			</div>
 			</br>
