@@ -1,6 +1,22 @@
 <meta charset="utf-8">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
+
+    <!-- BOOTSTRAP CORE STYLE  -->
+    <!-- <link href="assets/css/bootstrap.css" rel="stylesheet" /> -->
+    <link href="<?php echo asset('css/bootstrap.css') ?>" rel="stylesheet" />
+    <!-- FONT AWESOME STYLE  -->
+    <!-- <link href="assets/css/font-awesome.css" rel="stylesheet" /> -->
+    <link href="<?php echo asset('css/font-awesome.css') ?>" rel="stylesheet" />
+    <!-- DATATABLE STYLE  -->
+    <!-- <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" /> -->
+    <link href="<?php echo asset('js/dataTables/dataTables.bootstrap.css') ?>" rel="stylesheet" />
+    <!-- CUSTOM STYLE  -->
+    <!-- <link href="assets/css/style.css" rel="stylesheet" /> -->
+    <link href="<?php echo asset('css/style.css') ?>" rel="stylesheet" />
+    <!-- GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="{{asset('js/laravel.js')}}"></script>

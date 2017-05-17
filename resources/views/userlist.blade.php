@@ -10,19 +10,24 @@
         <![endif]-->
     <title>User Management</title>
     <!-- BOOTSTRAP CORE STYLE  -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- <link href="assets/css/bootstrap.css" rel="stylesheet" /> -->
+    <link href="<?php echo asset('css/bootstrap.css') ?>" rel="stylesheet" />
     <!-- FONT AWESOME STYLE  -->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- <link href="assets/css/font-awesome.css" rel="stylesheet" /> -->
+    <link href="<?php echo asset('css/font-awesome.css') ?>" rel="stylesheet" />
     <!-- DATATABLE STYLE  -->
-    <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <!-- <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" /> -->
+    <link href="<?php echo asset('js/dataTables/dataTables.bootstrap.css') ?>" rel="stylesheet" />
     <!-- CUSTOM STYLE  -->
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <!-- <link href="assets/css/style.css" rel="stylesheet" /> -->
+    <link href="<?php echo asset('css/style.css') ?>" rel="stylesheet" />
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
+@include('includes.head')
 </head>
 <body>
-@include('includes.head')
+
      <!-- MENU SECTION END-->
     <div class="content-wrapper">   
          <div class="container">
@@ -116,5 +121,8 @@
             </div>
         </div>
     </div>
+    </div>
+       @include('includes.footer')
+ 
 </body> 
 </html>

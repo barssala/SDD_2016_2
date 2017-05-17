@@ -19,11 +19,11 @@
     <link href="<?php echo asset('css/style.css') ?>" rel="stylesheet" />
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+@include('includes.head')
+    
 </head>
 <body>
-
-    <div class="content-wrapper">
-        <div class="container">
 
         <div class="row pad-botm">
             <div class="col-md-12">

@@ -2,7 +2,7 @@
 <html >
 	<head>
         <title>Assignment [Add]</title>
-        <link rel="stylesheet" href="css/list.css">
+         <link rel="stylesheet" href="<?php echo asset('css/list.css') ?>">
 		
 		@include('includes.head')
     </head>
@@ -66,6 +66,8 @@
     {{ Form::close()  }}
     </div>
     </div>
+        @include('includes.footer')
+
     </body>
 
 	
