@@ -5,11 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
     <title>Register</title>
-
     @include('includes.head')
 </head>
 <body>
-
     <div class="content-wrapper">
         <div class="container">
 
@@ -22,7 +20,7 @@
 		<div class="row">
 		<div class="col-md-12">
 
-                    <!-- Advanced Tables -->
+        <!-- Advanced Tables -->
         {{ Form::open(['url' => 'createNewUser']) }}
 		 <div class="panel panel-default">			
 			<div class="panel-body">	
@@ -146,12 +144,9 @@
             {{ Form::close()  }}
            </div>			
 		   <!--End Advanced Tables -->
-
 </div>
 </div>
 </div>
     @include('includes.footer')
-
 </body>
-
 </html>

@@ -9,7 +9,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
     <title>User Management</title>
-
 @include('includes.head')
 </head>
 <body>
@@ -109,6 +108,5 @@
     </div>
     </div>
        @include('includes.footer')
- 
 </body> 
 </html>
