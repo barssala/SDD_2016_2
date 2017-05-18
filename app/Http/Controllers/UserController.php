@@ -69,7 +69,7 @@ class UserController extends BaseController {
         $user  = User::find($id);
         $role_name = 'admin111';
         if ($user->role_id == 1){
-            $role_name = 'admmin';
+            $role_name = 'admin';
         } else if ($user->role_id == 2){
             $role_name = 'teacher';
         } else if ($user->role_id == 3){

@@ -102,6 +102,7 @@
 						<div class="col-md-2">
 							<label for="role">Type : {{$role_name}}</label>			
 						</div>
+						<div class="col-xs-4 ">
 						<!-- <div class="col-xs-4 ">
 							<select class="btn dropdown-toggle btn-default" id="role" name="role" style="text-align: center">
 							  <option value="admin">Administrator</option>
@@ -118,12 +119,14 @@
                                ['class' => 'btn dropdown-toggle btn-default',
                                 'style' => 'text-align: center']
                             ) }}
+                        </div> 
 						</div>            
 					</div>
 				</br>
 				<div class="row">		
 					<div style="padding-left: 200px">
 						<!-- <button type="button" class="btn btn-sm btn-success" >Save</button> -->
+						<button onclick="window.location='{{ URL::to('userLists') }}'" id="btnBack" class="btn btn-primary btn-sm" >Back</button>
                         {{ Form::submit('Save', array('class' => 'btn btn-sm btn-success')) }}
 					</div> 
 				</div>
@@ -131,8 +134,7 @@
 	       </div>
 
             {{ Form::close()  }}
-
-            <button onclick="window.location='{{ URL::to('userLists') }}'" id="btnBack" class="btn btn-primary btn-sm" >Back</button>
+            
            </div>
 		   <!--End Advanced Tables -->
 
