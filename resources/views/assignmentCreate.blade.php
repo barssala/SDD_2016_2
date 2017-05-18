@@ -9,6 +9,7 @@
 
     <body>
 	
+    
     {{ Form::open(['url' => 'saveAssignment']) }}
  			<fieldset>
  				<div id="legend">
