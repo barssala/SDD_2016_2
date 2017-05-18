@@ -29,7 +29,7 @@
 
 	</head>
 
-    <body>
+    <body style="background: url(http://wallpapershome.com/images/wallpapers/sky-5120x2880-stars-mountains-night-5708.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover;-o-background-size: cover; background-size: cover;" >
         @include('includes.head')
          <div class="container">
 
@@ -38,36 +38,42 @@
 
 
         <div class="col-md-12">
-		<div class="panel panel-default">			
+		<div class="">			
 			<div class="panel-body">	
 			    <div class="table-responsive">
 
             <div style="width:280px; padding-top: 50px; padding-bottom: 50px; margin: 0px auto">
                 {{ Form::open(array('url' => 'login')) }}
-                    <div style="padding-bottom: 20px;">
-                        <h2>Login to Grader </h2>
+                    <div style="padding-bottom: 20px; color: #FFFFFF;">
+                        <h2 style="font-weight: lighter;">GRADER LOGIN</h2>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email</label>
+                    <div class="form-group" style="color: #FFFFFF">
+                        <label for="exampleInputEmail1" style="font-weight: lighter;">Email</label>
                         <!-- <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Student id"> -->
                         {{ Form::text('email', null, 
                               array('required', 
                                 'class'=>'form-control', 
-                                'placeholder'=>'Email')) }}
+                                'placeholder'=>'Email',
+                                'style' => 'border-radius: 25px; height: 40px; opacity: 0.7;')) }}
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
+                    <div class="form-group" style="color: #FFFFFF; ">
+                        <label for="exampleInputPassword1" style="font-weight: lighter;">Password</label>
                         <!-- <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> -->
-                        {{ Form::password('password', null, 
+                        {{ Form::password('password', 
                               array('required', 
                                 'class'=>'form-control', 
-                                'placeholder'=>'Password')) }}
+                                'placeholder'=>'Password',
+                                'style' => 'border-radius: 25px; height: 40px; opacity: 0.7; ')) }}
                     </div>
-                    <div>
-                        <a href="https://www.google.co.th"><p style="text-align: right">Forgot password</p></a>
-                        <a href="{{ URL::to('register') }}"><p style="text-align: right">Register</p></a>
+                    <button type="submit" class="btn" style="width: 100%; height: 40px; background-color:#339999; border-radius: 25px; color: #FFFFFF; font-weight: lighter;">Log In</button>
+                    <div class="col-md-12" style="text-align: left; padding: 0px; margin-top: 5px;">
+                        <div class="col-md-4" style="padding: 0px;">
+                            <a href="{{ URL::to('register') }}" style="color: #FFFFFF; font-weight: lighter;">Register</a>
+                        </div>
+                        <div class="col-md-8" style="padding: 0px;text-align: right;">
+                            <a href="https://www.google.co.th" style="color: #FFFFFF; font-weight: lighter;">Forgot password</a>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-default">Log In</button>
                 {{ Form::close() }}
             </div>
         </div> 

@@ -41,6 +41,7 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
+<<<<<<< HEAD
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '8181'),
             'database' => env('DB_DATABASE', 'sdd2016_2'),
@@ -48,6 +49,16 @@ return [
             'password' => env('DB_PASSWORD', 'Akame777jung'),
             'charset' => 'utf8',
             'collation' => 'utf8_general_ci',
+=======
+            'host' => getenv('DB_HOST', 'localhost'),
+            'port' => getenv('DB_PORT', '8889'),
+            'database' => getenv('DB_DATABASE', 'sdd2016_2'),
+            'username' => getenv('DB_USERNAME', 'root'),
+            'password' => getenv('DB_PASSWORD', 'root'),
+            'unix_socket' => getenv('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+>>>>>>> 4b903986b93c974f78c67dd076e6848227c99fd6
             'prefix' => '',
             'strict' => true,
             'engine' => null,
