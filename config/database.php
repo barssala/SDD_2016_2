@@ -40,6 +40,7 @@ return [
         ],
 
         'mysql' => [
+            'driver' => 'mysql'
             'host' => getenv('DB_HOST', 'localhost'),
             'port' => getenv('DB_PORT', '8889'),
             'database' => getenv('DB_DATABASE', 'sdd2016_2'),
