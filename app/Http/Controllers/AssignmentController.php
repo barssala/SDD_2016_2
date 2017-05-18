@@ -12,6 +12,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use App\models\Assignment;
 use App\models\Question;
+use App\models\TestCase;
 
 class AssignmentController extends BaseController {
 
@@ -62,7 +63,13 @@ class AssignmentController extends BaseController {
 
 	public function delete($id){
 
-		$assignment = assignment::destroy($id);
+        $questions = Question::where('assignment_id', $id);
+        foreach ($questions as $question) {
+            $testcase = TestCase::where('question_id', $question->id)->delete();
+        }
+        $questions->delete();
+
+        $assignment = assignment::destroy($id);
 
         return redirect('getAssignments');
     }
