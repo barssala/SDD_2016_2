@@ -30,7 +30,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">
+                <a class="navbar-brand" href="{{ URL::to('Dashboard')">
                 </a>
             </div>
             <div class="right-div">
@@ -45,7 +45,7 @@
                 <div class="col-md-12">
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
-                            <li><a href="index.php" class="menu-top-active">HOME</a></li>
+                            <li><a href="{{ URL::to('Dashboard')" class="menu-top-active">HOME</a></li>
                            
                             <li><a href="#">FORMS</a></li>
                             <li>
