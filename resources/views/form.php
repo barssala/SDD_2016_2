@@ -1,6 +1,6 @@
 <html>
    <body>
-      
+       
       <?php
          echo Form::open(array('url' => 'foo/bar'));
             echo Form::text('username','Username');
