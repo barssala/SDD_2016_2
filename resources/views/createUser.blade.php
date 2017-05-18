@@ -105,6 +105,7 @@
 							  <option value="student">Student</option>
                               <option value="ta">TA</option>
 							</select> -->
+							<div class="col-xs-4 ">
                             {{ Form::select('role', [
                                'admin' => 'Administrator',
                                'teacher' => 'Professor',
@@ -114,6 +115,7 @@
                                ['class' => 'btn dropdown-toggle btn-default',
                                 'style' => 'text-align: center']
                             ) }}
+                            </div>
 						</div>            
 					</div> 	
 					<!-- <div class="row">

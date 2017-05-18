@@ -5,20 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
     <title>Edit User</title>
-    <!-- BOOTSTRAP CORE STYLE  -->
-    <!-- <link href="assets/css/bootstrap.css" rel="stylesheet" /> -->
-    <link href="<?php echo asset('css/bootstrap.css') ?>" rel="stylesheet" />
-    <!-- FONT AWESOME STYLE  -->
-    <!-- <link href="assets/css/font-awesome.css" rel="stylesheet" /> -->
-    <link href="<?php echo asset('css/font-awesome.css') ?>" rel="stylesheet" />
-    <!-- DATATABLE STYLE  -->
-    <!-- <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" /> -->
-    <link href="<?php echo asset('js/dataTables/dataTables.bootstrap.css') ?>" rel="stylesheet" />
-    <!-- CUSTOM STYLE  -->
-    <!-- <link href="assets/css/style.css" rel="stylesheet" /> -->
-    <link href="<?php echo asset('css/style.css') ?>" rel="stylesheet" />
-    <!-- GOOGLE FONT -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+	@include('includes.head')
 </head>
 <body>
 
@@ -141,7 +128,7 @@
 </div>
 </div>
 </div>
-
+@include('includes.footer')
 </body>
 
 </html>
