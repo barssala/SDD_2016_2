@@ -11,6 +11,8 @@
 </head>
 
 <body>
+    <div class="content-wrapper">
+
 	<div id="container" class="col-md-8 col-md-offset-2">		
 		<h2>Assignment List</h2>
 		<div class="space"></div>				
@@ -44,4 +46,6 @@
 		</tbody>
 		</table>
 	</div>
+	</div>
+		@include('includes.footer')	
 </body>
