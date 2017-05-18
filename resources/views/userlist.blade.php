@@ -9,22 +9,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
     <title>User Management</title>
-    <!-- BOOTSTRAP CORE STYLE  -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FONT AWESOME STYLE  -->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-    <!-- DATATABLE STYLE  -->
-    <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
-    <!-- CUSTOM STYLE  -->
-    <link href="assets/css/style.css" rel="stylesheet" />
-    <!-- GOOGLE FONT -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-
+@include('includes.head')
 </head>
 <body>
-	@include('includes.head')
+
      <!-- MENU SECTION END-->
-    <div class="content-wrapper">
+    <div class="content-wrapper">   
          <div class="container">
         <div class="row pad-botm">
             <div class="col-md-12">
@@ -39,8 +29,8 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                              User Management
-                             <button type="button" class="btn pull-right" onclick="window.location='{{ url("createUser") }}'">New Users</button>
-                        <button type="button" class="btn pull-right" onclick="window.location='{{ url("home") }}'">Back</button>
+                        <button type="button" class="btn btn-warning btn-xs pull-right" onclick="window.location='{{ url("home") }}'">Back</button>
+                             <button type="button" class="btn btn-primary btn-xs pull-right" onclick="window.location='{{ url("createUser") }}'">New Users</button>                       
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -116,5 +106,7 @@
             </div>
         </div>
     </div>
+    </div>
+       @include('includes.footer')
 </body> 
 </html>
