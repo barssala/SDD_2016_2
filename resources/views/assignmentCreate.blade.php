@@ -21,13 +21,21 @@
                             <form role="form">
                             <div class="form-group">
                                 <label for="assignment">Assignment Name</label>
-                                <input class="form-control" type="text" placeholder="Assignment" required/>
+                                <!-- <input class="form-control" type="text" placeholder="Assignment" required/> -->
+                                {{ Form::text('name', null, 
+                                      array('required', 
+                                        'class'=>'form-control', 
+                                        'placeholder'=>'Assignment')) }}
                         <p class="help-block">Assignment name, without spaces</p>
                             </div>
 
                             <div class="form-group">
                                 <label for="description">Description</label>
-                                <textarea class="form-control" rows="10" id="description" required placeholder="Description"></textarea>
+                                <!-- <textarea class="form-control" rows="10" id="description" required placeholder="Description"></textarea> -->
+                                {{ Form::textarea('description', null, 
+                                      array('required', 
+                                        'class'=>'form-control', 
+                                        'placeholder'=>'Description')) }}
                                 <p class="help-block">Please input description</p>                   
                             </div>
 <!--
@@ -41,7 +49,8 @@
  -->
                             <div class="form-group">
                                 <label for="duedate" class="col-2 col-form-label">Due Date<label>
-                                <input class="form-control" type="date" id="example-date-input" required>
+                                <!-- <input class="form-control" type="date" id="example-date-input" required> -->
+                                {{ Form::date('duedate', null, array('required', 'class'=>'form-control')) }}
                             </div>
 
                             <div class="form-group">
