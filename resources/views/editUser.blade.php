@@ -14,7 +14,7 @@
 
         <div class="row pad-botm">
             <div class="col-md-12">
-                <h4 class="header-line">EDIT USER {{$user->user}}</h4>  
+                <h4 class="header-line">EDIT USER {{$user->user}} ({{$role_name}})</h4>  
             </div>
         </div>
 
@@ -26,7 +26,7 @@
         {{ Form::open(['url' => ['updateUser',$user->id]]) }}
 		 <div class="panel panel-default">			
 			<div class="panel-body">	
-			    <div class="table-responsive">
+			    <div>
 
 				    <!-- <div class="row">
 						<div class="col-md-2">
@@ -79,7 +79,7 @@
 						</div>
 						<div class="col-xs-4 ">
 							<!-- <input type="text" class="form-control" id="Email" name="Email" > -->
-                            {{ Form::text('email', $user->email, 
+                            {{ Form::email('email', $user->email, 
                                   array('required', 
                                     'readonly',
                                     'class'=>'form-control')) }}
@@ -87,7 +87,7 @@
 					</div>						
 					<div class="row">
 						<div class="col-md-2">
-							<label for="role">Type : {{$role_name}}</label>			
+							<label for="role">Type : </label>			
 						</div>
 						<div class="col-xs-4 ">
 						<!-- <div class="col-xs-4 ">
