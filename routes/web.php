@@ -61,6 +61,10 @@ Route::get('home', [ 'as' => 'logout', 'uses' => 'DashboardController@home']);
 Route::get('register', [ 'as' => 'register', 'uses' => 'RegisterController@register']);
 Route::post('registerNewUser', [ 'as' => 'registerNewUser', 'uses' => 'RegisterController@registerNewUser']);
 
+Route::get('forgotPassword', [ 'as' => 'forgotPassword', 'uses' => 'RegisterController@forgotPassword']);
+Route::post('resetPassword', [ 'as' => 'resetPassword', 'uses' => 'RegisterController@resetPassword']);
+Route::post('updatePassword/{id}', [ 'as' => 'resetPassword', 'uses' => 'RegisterController@updatePassword']);
+
 Route::get('userLists', [ 'as' => 'userLists', 'uses' => 'UserController@userLists']);
 Route::get('createUser', [ 'as' => 'createUser', 'uses' => 'UserController@createUser']);
 Route::post('createNewUser', [ 'as' => 'createNewUser', 'uses' => 'UserController@createNewUser']);

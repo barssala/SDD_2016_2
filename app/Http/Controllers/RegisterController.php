@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
 use Session;
 use App\Http\Requests\RegisterUserFormRequest;
+use App\Http\Requests\ForgotPasswordFormRequest;
+use App\Http\Requests\ResetPasswordFormRequest;
+
+
 use App\models\User;
 use DateTime;
 
@@ -68,5 +72,29 @@ class RegisterController extends Controller
         // return Redirect::to('login');
         return redirect()->route('login', ['user' => $user]);
 
+    }
+
+    public function forgotPassword() {
+      return View::make('forgotPassword');
+    }
+
+    public function resetPassword(ForgotPasswordFormRequest $request) {
+
+        $user = User::where('user', $request->username)->where('email', $request->email)->first();
+
+        if($user){
+          return View::make('resetPassword', array('user_id' => $user->id));
+        }else {
+          Session::flash('message', 'User or Email not found.');
+          return redirect()->back();
+        }
+    }
+
+    public function updatePassword(ResetPasswordFormRequest $request,$id) {
+      $user = User::find($id);
+      $user->password  = $request->password;
+      $user->save();
+
+      return redirect()->route('login', ['user' => $user]);
     }
 }
