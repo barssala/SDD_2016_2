@@ -89,7 +89,7 @@
 						</div>
 						<div class="col-xs-4 ">
 							<!-- <input type="text" class="form-control" id="Email" name="Email" > -->
-                            {{ Form::text('email', null, 
+                            {{ Form::email('email', null, 
                                   array('required', 
                                     'class'=>'form-control')) }}
 						</div>            
