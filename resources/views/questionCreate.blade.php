@@ -78,15 +78,3 @@
 		</div>
 	</body>
 </html>
-
-<!-- 
-
-			
-
-			<div class="control-group">
-				<div class="controls">
-					<button class="btn btn-success">Save</button>
-				</div>
-			 </div>
-
-			 <br><br>	 -->	

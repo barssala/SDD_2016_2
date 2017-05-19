@@ -114,7 +114,11 @@
                   <!-- Table of Question -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Table of Question
+                        	Table of Question
+                        	<button class="btn btn-primary btn-xs pull-right" onclick="window.location='{{ url("createQuestion/$assignment->id") }}'"> 
+                        		<span class="glyphicon glyphicon-plus glyphicon"></span> 
+                        		Create Question
+                        	</button>
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
