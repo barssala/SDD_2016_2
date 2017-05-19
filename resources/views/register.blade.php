@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+@include('includes.head')
     <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
@@ -38,7 +39,7 @@
         {{ Form::open(['url' => 'registerNewUser']) }}
 		 <div class="panel panel-default">			
 			<div class="panel-body">	
-			    <div class="table-responsive">
+			    <div>
 
 				    <!-- <div class="row">
 						<div class="col-md-2">
@@ -63,7 +64,7 @@
 					</div>
                     <div class="row">
                         <div class="col-md-2">
-                            <label for="userName">Password : </label>           
+                            <label for="password">Password : </label>           
                         </div>
                         <div class="col-xs-4 ">
                             <!-- <input type="text" class="form-control" id="userName" name="userName" style="text-align: right"> -->
@@ -71,7 +72,7 @@
                                   array('required', 
                                     'class'=>'form-control',
                                     'style'=>'text-align: right', 
-                                    'placeholder'=>'Username')) }}
+                                    'placeholder'=>'Password')) }}
                         </div>            
                     </div>
 
@@ -103,7 +104,7 @@
 						</div>
 						<div class="col-xs-4 ">
 							<!-- <input type="text" class="form-control" id="Email" name="Email" > -->
-                            {{ Form::text('email', null, 
+                            {{ Form::email('email', null, 
                                   array('required', 
                                     'class'=>'form-control')) }}
 						</div>            
@@ -112,6 +113,7 @@
 						<div class="col-md-2">
 							<label for="role">Type : </label>			
 						</div>
+						<div class="col-xs-4 ">
 						<!-- <div class="col-xs-4 ">
 							<select class="btn dropdown-toggle btn-default" id="role" name="role" style="text-align: center">
 							  <option value="admin">Administrator</option>
@@ -120,7 +122,7 @@
                               <option value="ta">TA</option>
 							</select> -->
                             {{ Form::select('role', [
-                               'admin' => 'Administrator',
+                               '' => 'Select Type',
                                'teacher' => 'Professor',
                                'student' => 'Student',
                                'ta' => 'TA'],
@@ -128,6 +130,7 @@
                                ['class' => 'btn dropdown-toggle btn-default',
                                 'style' => 'text-align: center']
                             ) }}
+                        </div>  
 						</div>            
 					</div> 	
 					<!-- <div class="row">
@@ -162,7 +165,7 @@
 </div>
 </div>
 </div>
-
+@include('includes.footer')
 </body>
 
 </html>
