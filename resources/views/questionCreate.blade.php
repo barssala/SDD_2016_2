@@ -6,54 +6,82 @@
     </head>
 
     <body>
-	
-    {{ Form::open(['url' => ['saveQuestion',$assignment_id[0]]]) }}
-		<fieldset>
-			<div id="legend">
-				<legend class="">Question [Add]</legend>
-			</div>
-			<input type="hidden" id="assignment_id" name="assignment_id" value="{{ $assignment_id[0] }}">
-			<div class="control-group">
-			
-				<label class="control-label" for="question">Question Name</label>
-				<div class="controls">
-					{{ Form::text('name', null, array('required', 'class'=>'input-xlarge', 'placeholder'=>'Question')) }}						
-					<p class="help-block">Question name, without spaces</p>
-				</div>
-			</div>
-			
-			<div class="control-group">				
-				<label class="control-label" for="description">Description</label>
-				<div class="controls">
-					{{ Form::textarea('description', null, array('required', 'class'=>'input-xlarge', 'placeholder'=>'Description')) }}
-					<p class="help-block">Please input description</p>
-				</div>
-			</div>
-			
-			<div class="control-group">				
-				<label class="control-label" for="Guideline">Guideline</label>
-				<div class="controls">
-					{{ Form::textarea('guideline', null, array('required', 'class'=>'input-xlarge', 'placeholder'=>'Guideline')) }}
-					<p class="help-block">Please input Guideline</p>
-				</div>
-			</div>
+		<div class="content-wrapper">
+        	<div class="container">
+    			{{ Form::open(['url' => ['saveQuestion',$assignment_id[0]]]) }}
+					<fieldset>
+						<div class="col-md-6">
+				            <div class="panel panel-info">
+				                <div class="panel-heading">
+				                    Question [Add]
+				                </div> 
+				                <div class="panel-body">
 
-			<div class="control-group">				 
-			  <label class="control-label" for="score">Score</label>
-			  <div class="controls">
-				{{ Form::text('score', null, array('required', 'class'=>'input-xlarge', 'placeholder'=>'Score')) }}
-			  </div>
+					                <div class="form-group">
+	                                	<label for="assignment">Question Name</label>
+	                                	{{ Form::text('name', null, 
+                        					array('required', 
+	                                        	'class'=>'form-control', 
+	                                        	'placeholder'=>'Question')) }}
+	                                    <p class="help-block">Question name, without spaces</p>
+	                                </div>
+
+	                                <div class="form-group">
+		                                <label for="description">Description</label>
+		                                {{ Form::textarea('description', null, 
+		                                      array('required', 
+		                                        'class'=>'form-control', 
+		                                        'placeholder'=>'Description')) }}
+		                                <p class="help-block">Please input description</p>                   
+		                            </div>
+
+		                            <div class="form-group">
+		                                <label for="Guideline">Guideline</label>
+		                                {{ Form::textarea('guideline', null, 
+		                                      array('required', 
+		                                        'class'=>'form-control', 
+		                                        'placeholder'=>'Guideline')) }}
+		                                <p class="help-block">Please input Guideline</p>                   
+		                            </div>
+
+		                            <div class="form-group">
+	                                	<label for="score">Score</label>
+	                                	{{ Form::text('score', null, 
+                        					array('required', 
+	                                        	'class'=>'form-control', 
+	                                        	'placeholder'=>'Score')) }}
+	                                </div>
+
+	                                <div class="form-group">
+		                                <label for="status">Status</label>
+		                                <div class="controls">
+				                            {{ Form::radio('status', "ACTIVE", true) }}
+											{{ Form::label('open', 'ACTIVE') }}
+											{{ Form::radio('status', "INACTIVE", false) }}
+											{{ Form::label('closed', 'INACTIVE') }}
+			                            </div>
+		                            </div>
+
+		                            <div class="control-group">
+			                            <div class="controls">
+			                                <button class="btn btn-success">Save</button>
+			                                <button type="button" class="btn btn-success" onclick=""r>Back</button>
+			                            </div>
+			                        </div>
+
+	                            </div>
+			               	</div>
+			            </div>
+					</fieldset>
+			    {{ Form::close() }}	
 			</div>
+		</div>
+	</body>
+</html>
+
+<!-- 
+
 			
-			<div class="control-group">
-				<label class="control-label" for="status">Status</label>
-				<div class="controls">
-				{{ Form::radio('status', "ACTIVE", true) }}
-				{{ Form::label('open', 'ACTIVE') }}
-				{{ Form::radio('status', "INACTIVE", false) }}
-				{{ Form::label('closed', 'INACTIVE') }}
-				 </div>
-			</div>
 
 			<div class="control-group">
 				<div class="controls">
@@ -61,9 +89,4 @@
 				</div>
 			 </div>
 
-			 <br><br>				 
-		</fieldset>
-    {{ Form::close()  }}	
-				
-	</body>
-</html>
+			 <br><br>	 -->	
