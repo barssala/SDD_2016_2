@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
@@ -29,8 +29,8 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                              User Management
-                        <button type="button" class="btn btn-warning btn-xs pull-right" onclick="window.location='{{ url("home") }}'">Back</button>
-                             <button type="button" class="btn btn-primary btn-xs pull-right" onclick="window.location='{{ url("createUser") }}'">New Users</button>                       
+                        <button type="button" class="btn btn-warning btn-xs pull-right" onclick="window.location='{{ url("home") }}'">Back</button> 
+                        <button type="button" class="btn btn-primary btn-xs pull-right" style="margin-right: 5px !important" onclick="window.location='{{ url("createUser") }}'">New Users</button>                      
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
