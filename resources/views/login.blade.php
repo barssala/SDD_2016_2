@@ -30,7 +30,6 @@
 	</head>
 
     <body style="background: url(http://wallpapershome.com/images/wallpapers/sky-5120x2880-stars-mountains-night-5708.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover;-o-background-size: cover; background-size: cover;" >
-        @include('includes.head')
          <div class="container">
 
 		           <div class="row">
@@ -50,7 +49,7 @@
                     <div class="form-group" style="color: #FFFFFF">
                         <label for="exampleInputEmail1" style="font-weight: lighter;">Email</label>
                         <!-- <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Student id"> -->
-                        {{ Form::text('email', null,
+                        {{ Form::email('email', null, 
                               array('required',
                                 'class'=>'form-control',
                                 'placeholder'=>'Email',
