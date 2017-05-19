@@ -38,8 +38,8 @@
 
 
         <div class="col-md-12">
-		<div class="">			
-			<div class="panel-body">	
+		<div class="">
+			<div class="panel-body">
 			    <div class="table-responsive">
 
             <div style="width:280px; padding-top: 50px; padding-bottom: 50px; margin: 0px auto">
@@ -50,18 +50,18 @@
                     <div class="form-group" style="color: #FFFFFF">
                         <label for="exampleInputEmail1" style="font-weight: lighter;">Email</label>
                         <!-- <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Student id"> -->
-                        {{ Form::text('email', null, 
-                              array('required', 
-                                'class'=>'form-control', 
+                        {{ Form::text('email', null,
+                              array('required',
+                                'class'=>'form-control',
                                 'placeholder'=>'Email',
                                 'style' => 'border-radius: 25px; height: 40px; opacity: 0.7;')) }}
                     </div>
                     <div class="form-group" style="color: #FFFFFF; ">
                         <label for="exampleInputPassword1" style="font-weight: lighter;">Password</label>
                         <!-- <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> -->
-                        {{ Form::password('password', 
-                              array('required', 
-                                'class'=>'form-control', 
+                        {{ Form::password('password',
+                              array('required',
+                                'class'=>'form-control',
                                 'placeholder'=>'Password',
                                 'style' => 'border-radius: 25px; height: 40px; opacity: 0.7; ')) }}
                     </div>
@@ -71,12 +71,12 @@
                             <a href="{{ URL::to('register') }}" style="color: #FFFFFF; font-weight: lighter;">Register</a>
                         </div>
                         <div class="col-md-8" style="padding: 0px;text-align: right;">
-                            <a href="https://www.google.co.th" style="color: #FFFFFF; font-weight: lighter;">Forgot password</a>
+                            <a href="{{ URL::to('forgotPassword') }}" style="color: #FFFFFF; font-weight: lighter;">Forgot password</a>
                         </div>
                     </div>
                 {{ Form::close() }}
             </div>
-        </div> 
+        </div>
 
 		</div>
 		</div>

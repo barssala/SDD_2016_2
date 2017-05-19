@@ -17,10 +17,11 @@
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="{{asset('js/laravel.js')}}"></script>
-<script>window.csrfToken = '<?php echo csrf_token(); ?>';</script>		
+<script>window.csrfToken = '<?php echo csrf_token(); ?>';</script>
 
     <div class="navbar navbar-inverse set-radius-zero" >
         <div class="container">
@@ -46,7 +47,7 @@
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
                             <li><a href="{{ URL::to('home') }}" class="menu-top-active">HOME</a></li>
-                           
+
                             <li><a href="#">FORMS</a></li>
                             <li>
                                 <a href="{{ URL::to('getAssignments') }}" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">ASSIGNMENT<i class="fa fa-angle-down"></i></a>
