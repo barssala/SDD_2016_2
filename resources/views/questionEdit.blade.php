@@ -145,11 +145,9 @@
 	                                    <thead>
 	                                        <tr>
 	                                            <th>No.</th>
-	                                            <th>Name</th>
-	                                            <th>Description</th>
-	                                            <th>Gulideline</th>
-												<th>Score</th>
-												<th>Status</th>
+	                                            <th>Input</th>
+	                                            <th>Output</th>
+	                                            <th></th>
 	                                        </tr>
 	                                    </thead>
 	                                    <tbody></tbody>
