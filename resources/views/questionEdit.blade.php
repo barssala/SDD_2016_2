@@ -133,26 +133,26 @@
 	                  <!-- Table of Question -->
 	                    <div class="panel panel-default">
 	                        <div class="panel-heading">
-	                        	Table Of Test Case
-	                        	<button class="btn btn-primary btn-xs pull-right" onclick="window.location='{{ url("createTestCase/ $question->id") }}'"> 
+	                        	Table of Test case
+	                        	<button class="btn btn-primary btn-xs pull-right" onclick="window.location='{{ url("createTestCase/$question->id") }}'"> 
 	                        		<span class="glyphicon glyphicon-plus glyphicon"></span> 
 	                        		Add New
 	                        	</button>
 	                        </div>
 	                        <div class="panel-body">
 	                            <div class="table-responsive">
-	                                <table class="table table-striped table-bordered table-hover">
+	                                <table id = "testCase-table" class="table table-striped table-bordered table-hover">
 	                                    <thead>
 	                                        <tr>
 	                                            <th>No.</th>
-	                                            <th>Input</th>
-	                                            <th>Output</th>
-	                                            <th></th>
+	                                            <th>Name</th>
+	                                            <th>Description</th>
+	                                            <th>Gulideline</th>
+												<th>Score</th>
+												<th>Status</th>
 	                                        </tr>
 	                                    </thead>
-	                                    <tbody>
-										
-	                                    </tbody>
+	                                    <tbody></tbody>
 	                               </table>
 	                            </div>
 	                        </div>
