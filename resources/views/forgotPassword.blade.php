@@ -12,6 +12,11 @@
 
     });
     </script>
+    <style type="text/css">
+       .row{
+        margin-bottom: 5px !important;
+       }
+    </style>
 </head>
 <body>
     <div class="content-wrapper">
@@ -30,7 +35,7 @@
         {{ Form::open(['url' => 'resetPassword']) }}
 		 <div class="panel panel-default">
 			<div class="panel-body">
-			    <div class="table-responsive">
+			    <div>
 
             <div class="row">
   						<div class="col-md-2">
@@ -52,6 +57,7 @@
                           array('required',
                             'class'=>'form-control')) }}</div>
         </div>
+        </br>
 				<div class="row">
 					<div style="padding-left: 200px">
 						<button onclick="window.location='{{ URL::to('login') }}'" id="btnBack" class="btn btn-primary btn-sm" >Back</button>

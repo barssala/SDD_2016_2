@@ -24,7 +24,7 @@
         {{ Form::open(['url' => 'createNewUser']) }}
 		 <div class="panel panel-default">			
 			<div class="panel-body">	
-			    <div class="table-responsive">
+			    <div>
 
 				    <!-- <div class="row">
 						<div class="col-md-2">
@@ -89,7 +89,7 @@
 						</div>
 						<div class="col-xs-4 ">
 							<!-- <input type="text" class="form-control" id="Email" name="Email" > -->
-                            {{ Form::text('email', null, 
+                            {{ Form::email('email', null, 
                                   array('required', 
                                     'class'=>'form-control')) }}
 						</div>            
