@@ -20,6 +20,13 @@
     <link href="<?php echo asset('css/style.css') ?>" rel="stylesheet" />
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+    <style type="text/css">
+       .row{
+        margin-bottom: 5px !important;
+       }
+    </style>
+    
 </head>
 <body>
 
