@@ -25,6 +25,8 @@ class DashboardController extends Controller
      */
     public function home()
     {
+        // $user = session('user');
+        //var_dump($user);
         return view('dashboard');
     }
 }

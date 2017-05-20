@@ -30,10 +30,10 @@
                         <div class="panel-heading">
                              Assignment List
                          <button type="button" class="btn btn-warning btn-xs pull-right" onclick="window.location='{{ url("home") }}'">Back</button> 
-                        <button type="button" class="btn btn-primary btn-xs pull-right" style="margin-right: 5px !important" onclick="window.location='{{ url("createAssignment") }}'">New Assignment</button>
- 						
-                      
-                                           
+                         <?php if ((session('user')->role_id != 3)): ?>
+                            <button type="button" class="btn btn-primary btn-xs pull-right" style="margin-right: 5px !important" onclick="window.location='{{ url("createAssignment") }}'">New Assignment</button>
+                            <?php endif; ?>
+
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -45,8 +45,11 @@
                                             <th>Description</th>
                                             <th>Due Date</th>
                                             <th>Status</th>
-											<th><center>Edit</center></th>
-											<th><center>Delete</center></th>
+                                            <th><center>View</center></th>
+                                            <?php if ((session('user')->role_id != 3)): ?>
+    											<th><center>Edit</center></th>
+    											<th><center>Delete</center></th>
+                                            <?php endif; ?>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -63,24 +66,38 @@
                                             <td>{{$assignment->duedate}}</td>
                                             <td>{{$assignment->active ? "ACTIVE" : "INACTIVE"}}</td>
                                             <td>
-                                                <center>
-                                                    <a href="editAssignment/{{ $assignment->id }}">
-                                                        <button class="btn btn btn-primary btn-xs">
-                                                            <i class="fa fa-edit ">
-                                                                
-                                                            </i>
-                                                            Edit
-                                                        </button>
-                                                    </a>
-                                                </center>
-                                            </td>
-                                                <td>
                                                     <center>
-                                                        <a href="deleteAssignment/{{ $assignment->id }}">
-                                                            <button class="btn btn-danger btn-xs"><i class="fa fa-pencil"></i>Delete</button>
+                                                        <a href="editAssignment/{{ $assignment->id }}">
+                                                            <button class="btn btn btn-primary btn-xs">
+                                                                <i class="fa fa-edit ">
+                                                                    
+                                                                </i>
+                                                                View
+                                                            </button>
                                                         </a>
                                                     </center>
-                                            </td>
+                                                </td>
+                                            <?php if ((session('user')->role_id != 3)): ?>
+                                                <td>
+                                                    <center>
+                                                        <a href="editAssignment/{{ $assignment->id }}">
+                                                            <button class="btn btn btn-primary btn-xs">
+                                                                <i class="fa fa-edit ">
+                                                                    
+                                                                </i>
+                                                                Edit
+                                                            </button>
+                                                        </a>
+                                                    </center>
+                                                </td>
+                                                    <td>
+                                                        <center>
+                                                            <a href="deleteAssignment/{{ $assignment->id }}">
+                                                                <button class="btn btn-danger btn-xs"><i class="fa fa-pencil"></i>Delete</button>
+                                                            </a>
+                                                        </center>
+                                                </td>
+                                            <?php endif; ?>
                                         </tr>
                                             <!-- { { ++$key } } -->
                                         @endforeach

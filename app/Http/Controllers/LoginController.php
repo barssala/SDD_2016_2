@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use View;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
 use Session;
+use App\models\User;
 
 class LoginController extends Controller
 {
@@ -49,7 +51,7 @@ class LoginController extends Controller
         return View::make('login');
     }
 
-    public function postLogin() {
+    public function postLogin(Request $request) {
         $rules = array(
                 'email'    => 'required|email', // make sure the email is an actual email
                 'password' => 'required|alphaNum|min:3' // password can only be alphanumeric and has to be greater than 3 characters
@@ -63,8 +65,9 @@ class LoginController extends Controller
         } else {
 
             // create our user data for the authentication
+            $email = Input::get('email');
             $userdata = array(
-                'email'     => Input::get('email'),
+                'email'     => $email,
                 'password'  => Input::get('password')
             );
 
@@ -75,6 +78,11 @@ class LoginController extends Controller
                 // redirect them to the secure section or whatever
                 // return Redirect::to('secure');
                 // for now we'll just echo success (even though echoing in a controller is bad)
+                $user = User::where('email', $email)->first();
+                //$request->session()->push('user', $user);
+                //var_dump($user);
+                //var_dump($email);
+                session(['user' => $user]);
                 echo 'SUCCESS!';
                 return Redirect::to('home');
 

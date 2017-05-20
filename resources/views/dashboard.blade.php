@@ -12,7 +12,6 @@
 
 <body>
     <div class="content-wrapper">
-
     
     </div>
         @include('includes.footer') 
