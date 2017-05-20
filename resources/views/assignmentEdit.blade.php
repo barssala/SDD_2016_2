@@ -156,9 +156,6 @@
 
                                                 <a href="../viewQuestion/{{ $question->id }}"><span class="glyphicon glyphicon-eye-open"></span></a>
 												<a href="../editQuestion/{{ $question->id }}"><span class="glyphicon glyphicon-cog"></span></a>
-
-												<a href="../editQuestion/{{ $question->id }}"><span class="glyphicon glyphicon-cog"></span></a>						
-
 												<a href="../deleteQuestion/{{ $question->id }}"><span class="glyphicon glyphicon-trash"></span></a>
 											</td>
 										@endforeach
