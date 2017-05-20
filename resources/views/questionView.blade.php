@@ -1,4 +1,4 @@
-OCTYPE html>
+<!DOCTYPE html>
 <html >
 	<head>
         @include('includes.head')
@@ -69,7 +69,7 @@ OCTYPE html>
 	        <div class="col-md-4 col-sm-4 col-xs-12">
 	 			<div class="panel panel-info">
 					<div class="panel-heading">
-						Question [Edit]
+						Question [View]
 					</div> 
 					<div class="panel-body">
 						<div class="form-group">
