@@ -92,7 +92,7 @@ class RegisterController extends Controller
 
     public function updatePassword(ResetPasswordFormRequest $request,$id) {
       $user = User::find($id);
-      $user->password  = $request->password;
+      $user->password  = bcrypt($request->password);
       $user->save();
 
       return redirect()->route('login', ['user' => $user]);
