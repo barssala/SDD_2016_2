@@ -50,18 +50,16 @@
 <div class="content-wrapper">
 <div class="container">
 
-    <div class="row">
     {{ Form::open(['url' => ['updateAssignment',$assignment->id]]) }}
-		<fieldset>
 
-         <div class="col-md-5 col-sm-5 col-xs-12">
+         <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="panel panel-info">                 
                 <div class="panel-heading">
                     Assignment [Add]
                 </div> 
 
                 <div class="panel-body">
-                <form role="form">
+
                      <div class="form-group">
 						<label class="control-label" for="assignment">Assignment Name</label>
 						<div class="controls">
@@ -71,9 +69,9 @@
 					</div>
 
 					 <div class="form-group">
-						<label class="control-label" for="description">Description</label>
+						<label for="description">Description</label>
 						<div class="controls">
-							{{ Form::textarea('description', $assignment->description,  array('required', 'class'=>'input-xlarge', 'placeholder'=>'Description')) }}
+							{{ Form::textarea('description', $assignment->description,  array('required', 'class'=>'form-control', 'placeholder'=>'Description')) }}
 							<p class="help-block">Please input description</p>
 						</div>
 					 </div>
@@ -108,15 +106,15 @@
 					</div>
 				 </div>
 
-				</form>
+
 				</div>
 
      			</div>
             </div>
-        </field>     
+    
         {{ Form::close()  }}
 
-        		<div class="col-md-7 col-sm-7 col-xs-12">
+        		<div class="col-md-8 col-sm-8 col-xs-12">
                       <div class="panel panel-success">
                         <div class="panel-heading">
                         	Table of Question
@@ -169,7 +167,7 @@
              
              </div>
           </div>
-          </div>
+
 
 
 		@include('includes.footer')
