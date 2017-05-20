@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+OCTYPE html>
 <html >
 	<head>
         @include('includes.head')
-        <title>Question [Edit]</title>
+        <title>Question [View]</title>
 
 		<script>
 			$( document ).ready(function() {
