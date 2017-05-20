@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html >
 	<head>
         @include('includes.head')
@@ -20,47 +20,42 @@
 										 @endforeach ];
 
 				var tcNo = tcId_arr.length;
-				var role = '<?php echo session("user")->role_id ?>';
-				console.log(role);
+				var role = '<?php echo session("user")->role_id ?>';				
 				for (var i = 0; i < tcNo; i++) {
-					var action = '';
-					if (role !== 3) {
-						action = '<td><a href="../editTestCase/' + tcId_arr[i] + '"><span class="glyphicon glyphicon-cog"></span></a>'+
-								'<a href="../deleteTestCase/'+tcId_arr[i]+'"><span class="glyphicon glyphicon-trash"></span></a></td>';
-					}
-					$('#testCase-table tbody').append(
-						'<tr>'+
-							'<td>'+ (i+1) +'</td>'+
-							'<td></td>'+
-							'<td></td>'+
-							'<td><a href="../editTestCase/' + tcId_arr[i] + '"><span class="glyphicon glyphicon-cog"></span></a>'+
-								'<a href="../deleteTestCase/'+tcId_arr[i]+'"><span class="glyphicon glyphicon-trash"></span></a></td>' 
-								//: '' )
-								+
-						'</tr>');
-
+					
 					var json_input = $.parseJSON( tcInput_arr[i] );
 				    var json_output = $.parseJSON( tcOutput_arr[i] );
-				    var maxLen = json_input.length > json_output.length ? json_input.length:json_output.length;
+				    var maxLen = json_input.length > json_output.length ? json_input.length:json_output.length;	
+					var mergeNo = '<tr>'+'<th rowspan=\"'+maxLen+'\">'+ (i+1) +'</th>';
+					var mergeEdit = '<th rowspan=\"'+maxLen+'\">'+'<a href="../editTestCase/' + tcId_arr[i] + '"><span class="glyphicon glyphicon-cog"></span></a>'+
+								'<a href="../deleteTestCase/'+tcId_arr[i]+'"><span class="glyphicon glyphicon-trash"></span></a></th>'
+					var endTr =	'</tr>';
+					var contentBody = '';
 				    for( var j=0; j < maxLen; j++ ){
 						var input = '';
 						var output = '';
-
 						if (typeof json_input[j] !== 'undefined') input = json_input[j].value + '(' + json_input[j].type +')';
 						if (typeof json_output[j] !== 'undefined') output = json_output[j].value + '(' + json_output[j].type +')';
-						var column = '';
-						if (role === 3) {
-							column = '<td></td>';
-						}
-				        $('#testCase-table tbody').append(
-							'<tr>'+
-								'<td></td>'+
-								'<td>'+ input +'</td>'+
-								'<td>'+ output +'</td>' +
-								'<td></td>'+
-							'</tr>'
-						);
+						if( j == 0) {
+							if(role != 3){
+								contentBody = mergeNo+'<td>'+ input +'</td>'+'<td>'+ output +'</td>'+mergeEdit+''+endTr
+							}else{
+								contentBody = mergeNo+'<td>'+ input +'</td>'+'<td>'+ output +'</td>'+endTr
+								
+							}
+								
+													
+						}else{
+							contentBody = contentBody+ '<tr><td>'+ input +'</td>'+'<td>'+ output +'</td></tr>'
+						}					
+																
 					}
+					$('#testCase-table tbody').append(							
+								contentBody
+								
+						);
+
+		
 				}
 			});
 		</script>
@@ -136,7 +131,7 @@
 									<th>Input</th>
 									<th>Output</th>
 										<?php if ((session('user')->role_id != 3)): ?>
-									<th></th>
+									<th>Action</th>
 										<?php endif; ?>
 								</tr>
 								</thead>
