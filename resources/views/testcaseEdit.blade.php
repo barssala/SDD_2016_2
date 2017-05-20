@@ -1,8 +1,18 @@
 <!DOCTYPE html>
-<html >
-	<head>
-    @include('includes.head')
-    <title>Test Case [Edit]</title>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>Edit TestCase</title>
+	@include('includes.head')
+
+<style type="text/css">
+   .row{
+    margin-bottom: 5px !important;
+   }
+</style>
+
 		<script>
 
 		String.format = function() {
@@ -98,41 +108,73 @@
 			});
 		});
 		</script>
-  </head>
 
-    <body>
+</head>
+<body>
 
-    {{ Form::open(['url' => ['updateTestCase',$testCase->id]]) }}
-		<fieldset>
-			<div id="legend">
-				<legend class="">Test Case [Edit]</legend>
-			</div>
-			<input type="hidden" id="json_input" name="json_input" value="{{$testCase->input}}">
-			<input type="hidden" id="json_output" name="json_output" value="{{$testCase->output}}">
+    <div class="content-wrapper">
+        <div class="container">
+		<div class="row">
+		<div class="col-md-12">
 
-			<div class="io-box">
-			<div class="control-group" style="display:inline-block; vertical-align: top;" >
-				<label class="control-label" for="testcase">Test Case Input</label>
-				<div id="input">
-				</div>
-			</div>
-
-			<div class="control-group" style="display:inline-block; vertical-align: top;" >
-				<label class="control-label" for="description">Test Case Output</label>
-				<div id="output">
-				</div>
+                    <!-- Advanced Tables -->
+         {{ Form::open(['url' => ['updateTestCase',$testCase->id]]) }}
+		 <div class="panel panel-default">			
+			<div class="panel-body">	
+			<div class="panel panel-info">
+				                <div class="panel-heading">
+				                   Test Case [Edit]
+				                </div> 
+				                <input type="hidden" id="json_input" name="json_input" value="{{$testCase->input}}">
+								<input type="hidden" id="json_output" name="json_output" value="{{$testCase->output}}">
+				                <div class="panel-body">
+				                <div class="row">
+									<div class="col-xs-4 ">
+										<label >Test Case Input</label>			
+									</div>
+									<div class="col-xs-4 ">
+										<label >Test Case Output</label>			
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-4 ">
+										<div id="input"></div>		
+									</div>
+									<div class="col-xs-4 ">
+										<div id="output"></div>			
+									</div>
+								</div>
+								 <div class="row">
+									<div class="col-xs-4 ">
+										<div id="addInput" class="btn btn-warning">Add new input</div>		
+									</div>
+									<div class="col-xs-4 ">
+										<div id="addOutput" class="btn btn-warning">Add new output</div>			
+									</div>
+								</div>
+								
+		                            </br>
+								<div class="row">
+		                            <div class="col-xs-4 ">
+		                            	<button onclick="window.location='{{ URL::to('editQuestion') }}'" id="btnBack" class="btn btn-primary">Back</button>
+            							<button id="save" class="btn btn-success">Save</button>
+			                        </div>
+								</div>
+	                            </div>
 			</div>
 			</br>
-			<div id="addInput" class="btn btn-success">Add new input</div>
-            <div id="addOutput" class="btn btn-success">Add new output</div>
-		</div>
-			<div class="control-group">
-				<div class="controls">
-					<button id="save" class="btn btn-success">Save</button>
-				</div>
-			 </div>
-		</fieldset>
-    {{ Form::close()  }}
 
-	</body>
+			</div>
+	       </div>
+
+            {{ Form::close()  }}
+            
+           </div>
+		   <!--End Advanced Tables -->
+
+</div>
+</div>
+</div>
+</body>
+
 </html>
