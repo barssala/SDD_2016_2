@@ -1,8 +1,18 @@
 <!DOCTYPE html>
-<html >
-	<head>
-    @include('includes.head')
-    <title>Test Case [Add]</title>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>Add TestCase</title>
+	@include('includes.head')
+
+<style type="text/css">
+   .row{
+    margin-bottom: 5px !important;
+   }
+</style>
+
 		<script>
 
 				String.format = function() {
@@ -75,68 +85,102 @@
 				});
 			});
 		</script>
-  </head>
 
-    <body>
+</head>
+<body>
 
-    {{ Form::open(['url' => ['saveTestCase',$question_id[0]]]) }}
-		<fieldset>
-			<div id="legend">
-				<legend class="">Test Case [Add]</legend>
-			</div>
-			<input type="hidden" id="question_id" name="question_id" value="{{ $question_id[0] }}">
-			<input type="hidden" id="json_input" name="json_input" value="">
-			<input type="hidden" id="json_output" name="json_output" value="">
+    <div class="content-wrapper">
+        <div class="container">
+		<div class="row">
+		<div class="col-md-12">
 
-			<div class="io-box">
-			<div class="control-group" style="display:inline-block; vertical-align: top;" >
-				<label class="control-label" for="testcase">Test Case Input</label>
-				<div id="input">
-					<div id="input_div">
-					{{ Form::text('input_1', null, array('required', 'id'=>'input_1','class'=>'input-xlarge', 'placeholder'=>'Input')) }}
-					{{ Form::select('input_type_1', [
-                               'integer' => 'integer',
-                               'double' => 'double',
-                               'string' => 'string',
-                               'list' => 'list'],
-                               null,
-                               ['class' => 'btn dropdown-toggle btn-default',
-                                'style' => 'text-align: center', 'id'=>'input_type_1']
-                            ) }}
-					<span class="glyphicon glyphicon-trash" style="cursor:pointer"></span>
-					</div>
-				</div>
-			</div>
-
-			<div class="control-group" style="display:inline-block; vertical-align: top;" >
-				<label class="control-label" for="description">Test Case Output</label>
-				<div id="output">
-					<div id="output_div">
-					{{ Form::text('output_1', null, array('required', 'class'=>'input-xlarge', 'id'=>'output_1', 'placeholder'=>'Output')) }}
-					{{ Form::select('output_type_1', [
-                               'integer' => 'integer',
-                               'double' => 'double',
-                               'string' => 'string',
-                               'list' => 'list'],
-                               null,
-                               ['class' => 'btn dropdown-toggle btn-default',
-                                'style' => 'text-align: center', 'id'=>'output_type_1']
-                            ) }}
-					<span class="glyphicon glyphicon-trash" style="cursor:pointer"></span>
-					</div>
-				</div>
+                    <!-- Advanced Tables -->
+        {{ Form::open(['url' => ['saveTestCase',$question_id[0]]]) }}
+		 <div class="panel panel-default">			
+			<div class="panel-body">	
+			<div class="panel panel-info">
+				                <div class="panel-heading">
+				                   Test Case [Add]
+				                </div> 
+				                <input type="hidden" id="question_id" name="question_id" value="{{ $question_id[0] }}">
+								<input type="hidden" id="json_input" name="json_input" value="">
+								<input type="hidden" id="json_output" name="json_output" value="">
+				                <div class="panel-body">
+				                <div class="row">
+									<div class="col-xs-4 ">
+										<label >Test Case Input</label>			
+									</div>
+									<div class="col-xs-4 ">
+										<label >Test Case Output</label>			
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-4 ">
+										<div id="input">
+											<div id="input_div">
+												{{ Form::text('input_1', null, array('required', 'id'=>'input_1','class'=>'input-xlarge', 'placeholder'=>'Input')) }}
+												{{ Form::select('input_type_1', [
+														   'integer' => 'integer',
+														   'double' => 'double',
+														   'string' => 'string',
+														   'list' => 'list'],
+														   null,
+														   ['class' => 'btn dropdown-toggle btn-default',
+															'style' => 'text-align: center', 'id'=>'input_type_1']
+														) }}
+												<span class="glyphicon glyphicon-trash" style="cursor:pointer"></span>
+											</div>
+										</div>	
+									</div>
+									<div class="col-xs-4 ">
+										<div id="output">
+											<div id="output_div">
+												{{ Form::text('output_1', null, array('required', 'class'=>'input-xlarge', 'id'=>'output_1', 'placeholder'=>'Output')) }}
+												{{ Form::select('output_type_1', [
+														   'integer' => 'integer',
+														   'double' => 'double',
+														   'string' => 'string',
+														   'list' => 'list'],
+														   null,
+														   ['class' => 'btn dropdown-toggle btn-default',
+															'style' => 'text-align: center', 'id'=>'output_type_1']
+														) }}
+												<span class="glyphicon glyphicon-trash" style="cursor:pointer"></span>
+											</div>
+										</div>		
+									</div>
+								</div>
+								 <div class="row">
+									<div class="col-xs-4 ">
+										<div id="addInput" class="btn btn-warning">Add new input</div>		
+									</div>
+									<div class="col-xs-4 ">
+										<div id="addOutput" class="btn btn-warning">Add new output</div>			
+									</div>
+								</div>
+								
+		                            </br>
+								<div class="row">
+		                            <div class="col-xs-4 ">
+		                            	<button onclick="window.location='{{ URL::to('editQuestion') }}'" id="btnBack" class="btn btn-primary">Back</button>
+            							<button id="save" class="btn btn-success">Save</button>
+			                        </div>
+								</div>
+	                            </div>
 			</div>
 			</br>
-			<div id="addInput" class="btn btn-success">Add new input</div>
-			<div id="addOutput" class="btn btn-success">Add new output</div>
-		</div>
-			<div class="control-group">
-				<div class="controls">
-					<button id="save" class="btn btn-success">Save</button>
-				</div>
-			 </div>
-		</fieldset>
-    {{ Form::close()  }}
 
-	</body>
+			</div>
+	       </div>
+
+            {{ Form::close()  }}
+            
+           </div>
+		   <!--End Advanced Tables -->
+
+</div>
+</div>
+</div>
+</body>
+
 </html>
