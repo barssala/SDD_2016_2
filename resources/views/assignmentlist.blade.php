@@ -18,7 +18,7 @@
          <div class="container">
         <div class="row pad-botm">
             <div class="col-md-12">
-           <h4 class="header-line">Admin</h4>  
+           <h4 class="header-line">Assignment List</h4>  
        
             </div>
 
