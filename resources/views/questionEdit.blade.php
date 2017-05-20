@@ -59,8 +59,8 @@
     	<div class="content-wrapper">
         	<div class="container">
 			    {{ Form::open(['url' => ['updateQuestion',$question->id]]) }}
-					<fieldset>
-						<div class="col-md-6">
+					<!--	<div class="col-md-4"> -->
+				<div class="col-md-4 col-sm-4 col-xs-12">
 				            <div class="panel panel-info">
 				                <div class="panel-heading">
 				                    Question [Edit]
@@ -121,15 +121,10 @@
 
 	                            </div>
 			               	</div>
-			            </div>
-					</fieldset>
+			    </div>
 			    {{ Form::close()  }}
-			</div>
-		</div>
 
-		<div class="container">
-	        <div class="row">
-	                <div class="col-md-11">
+	        <div class="col-md-8 col-sm-8 col-xs-12">
 	                  <!-- Table of Question -->
 	                    <div class="panel panel-default">
 	                        <div class="panel-heading">
@@ -155,7 +150,8 @@
 	                            </div>
 	                        </div>
 	                    </div>
-					</div>
+			</div>
+
 			 </div>
 		</div>
 	</body>
