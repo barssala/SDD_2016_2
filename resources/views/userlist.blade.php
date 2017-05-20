@@ -29,7 +29,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                              User Management
-                        <button type="button" class="btn btn-warning btn-xs pull-right" onclick="window.location='{{ url("home") }}'">Back</button> 
+                        <!-- <button type="button" class="btn btn-warning btn-xs pull-right" onclick="window.location='{{ url("home") }}'">Back</button> --> 
                         <button type="button" class="btn btn-primary btn-xs pull-right" style="margin-right: 5px !important" onclick="window.location='{{ url("createUser") }}'">New Users</button>                      
                         </div>
                         <div class="panel-body">
