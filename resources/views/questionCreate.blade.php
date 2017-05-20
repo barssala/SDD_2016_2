@@ -65,7 +65,7 @@
 		                            <div class="control-group">
 			                            <div class="controls">
 			                                <button class="btn btn-success">Save</button>
-			                                <button type="button" class="btn btn-success" onclick=""r>Back</button>
+			                                <a href="../editAssignment/{{ $assignment_id }}" class="btn btn-success">Back</a>
 			                            </div>
 			                        </div>
 

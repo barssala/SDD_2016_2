@@ -68,7 +68,7 @@
                                 'placeholder'=>'Password',
                                 'style' => 'border-radius: 25px; height: 40px; opacity: 0.7; ')) }}
                     </div>
-                    <button type="submit" class="btn" style="width: 100%; height: 40px; background-color:#339999; border-radius: 25px; color: #FFFFFF; font-weight: lighter;">Log In</button>
+                    <button type="submit" id="loginbutton" class="btn" style="width: 100%; height: 40px; background-color:#339999; border-radius: 25px; color: #FFFFFF; font-weight: lighter;">Log In</button>
                     <div class="col-md-12" style="text-align: left; padding: 0px; margin-top: 5px;">
                         <div class="col-md-4" style="padding: 0px;">
                             <a href="{{ URL::to('register') }}" style="color: #FFFFFF; font-weight: lighter;">Register</a>

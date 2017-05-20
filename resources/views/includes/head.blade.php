@@ -51,7 +51,7 @@
 
                            <!-- <li><a href="#">FORMS</a></li> -->
                             <li>
-                                <a href="{{ URL::to('getAssignments') }}">ASSIGNMENT<i class="fa fa-angle-down"></i></a>
+                                <a id="assignments" href="{{ URL::to('getAssignments') }}">ASSIGNMENT<i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">UI ELEMENTS</a></li>
                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">EXAMPLE LINK</a></li>

@@ -156,8 +156,8 @@
 		                            </br>
 								<div class="row">
 		                            <div class="col-xs-4 ">
-		                            	<button onclick="window.location='{{ URL::to('editQuestion') }}'" id="btnBack" class="btn btn-primary">Back</button>
             							<button id="save" class="btn btn-success">Save</button>
+                                        <a href="../editQuestion/{{ $testCase->question_id }}" class="btn btn-success">Back</a>
 			                        </div>
 								</div>
 	                            </div>

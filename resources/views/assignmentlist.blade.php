@@ -31,7 +31,7 @@
                              Assignment List
                          <button type="button" class="btn btn-warning btn-xs pull-right" onclick="window.location='{{ url("home") }}'">Back</button> 
                          <?php if ((session('user')->role_id != 3)): ?>
-                            <button type="button" class="btn btn-primary btn-xs pull-right" style="margin-right: 5px !important" onclick="window.location='{{ url("createAssignment") }}'">New Assignment</button>
+                            <button type="button" class="btn btn-primary btn-xs pull-right" id="newAssignment" style="margin-right: 5px !important" onclick="window.location='{{ url("createAssignment") }}'">New Assignment</button>
                             <?php endif; ?>
 
                         </div>
