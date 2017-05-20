@@ -24,9 +24,8 @@
     <!-- CUSTOM STYLE  -->
     <!-- <link href="assets/css/style.css" rel="stylesheet" /> -->
     <link href="<?php echo asset('css/style.css') ?>" rel="stylesheet" />
-        <link href="<?php echo asset('./vendor/swiper/css/swiper.min.css') ?>" rel="stylesheet" type="text/css"/>
 	<link rel="shortcut icon" href="<?php echo asset('favicon.ico') ?>">
-<link rel="stylesheet" href="<?php echo asset('css/animate.css') ?>" />
+	<link rel="stylesheet" href="<?php echo asset('css/animate.css') ?>" />
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <style type="text/css">
@@ -103,8 +102,8 @@
 					<div class="col-md-8 col-md-offset-2">
 						<div class="fh5co-hero-wrap">
 							<div class="fh5co-hero-intro text-center">
-								<h1 class="fh5co-lead"><span class="quo">&ldquo;</span>Design is not just what it looks like and feels like. Design is how it works. <span class="quo">&rdquo;</span></h1>
-								<p class="author">&mdash; <cite>Steve Jobs</cite></p>
+								<h1 class="fh5co-lead"><span class="quo">&ldquo;</span>Design is not just what it looks like and feels like. Design is how it works<span class="quo">&rdquo;</span></h1>
+								<p class="author">&mdash; <cite>Steve Jobs &mdash;</cite></p>
 							</div>
 						</div>
 					</div>
@@ -135,9 +134,13 @@
                                 </a>
 										<!--จะวนfor loop 6 ครั้ง แสดงassignmentล่าุสด  -->
 							</div>
-		                    
+			                    
 		                </div>
-					@endfor
+	
+					@endfor                							
+					<div class="fh5co-feature-text" align="right">
+											<p><a id="assignments" href="{{ URL::to('getAssignments') }}">Read more</a></p>
+							</div>
                     </div>
 
 
