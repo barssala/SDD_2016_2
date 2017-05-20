@@ -48,9 +48,9 @@
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
                             <li><a href="{{ URL::to('home') }}" class="menu-top-active">HOME</a></li>
 
-                            <li><a href="#">FORMS</a></li>
+                           <!-- <li><a href="#">FORMS</a></li> -->
                             <li>
-                                <a href="{{ URL::to('getAssignments') }}" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">ASSIGNMENT<i class="fa fa-angle-down"></i></a>
+                                <a href="{{ URL::to('getAssignments') }}">ASSIGNMENT<i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">UI ELEMENTS</a></li>
                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">EXAMPLE LINK</a></li>
