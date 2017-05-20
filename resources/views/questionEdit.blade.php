@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html >
 	<head>
         @include('includes.head')
@@ -21,34 +21,31 @@
 
 				var tcNo = tcId_arr.length;
 				for (var i = 0; i < tcNo; i++) {
-					$('#testCase-table tbody').append(
-						'<tr>'+
-							'<td>'+ (i+1) +'</td>'+
-							'<td></td>'+
-							'<td></td>'+
-							'<td><a href="../editTestCase/' + tcId_arr[i] + '"><span class="glyphicon glyphicon-cog"></span></a>'+
-								'<a href="../deleteTestCase/'+tcId_arr[i]+'"><span class="glyphicon glyphicon-trash"></span></a></td>'+
-						'</tr>');
-
-					var json_input = $.parseJSON( tcInput_arr[i] );
+				var json_input = $.parseJSON( tcInput_arr[i] );
 				    var json_output = $.parseJSON( tcOutput_arr[i] );
-				    var maxLen = json_input.length > json_output.length ? json_input.length:json_output.length;
+				    var maxLen = json_input.length > json_output.length ? json_input.length:json_output.length;	
+					var mergeNo = '<tr>'+'<th rowspan=\"'+maxLen+'\">'+ (i+1) +'</th>';
+					var mergeEdit = '<th rowspan=\"'+maxLen+'\">'+'<a href="../editTestCase/' + tcId_arr[i] + '"><span class="glyphicon glyphicon-cog"></span></a>'+
+								'<a href="../deleteTestCase/'+tcId_arr[i]+'"><span class="glyphicon glyphicon-trash"></span></a></th>'+
+							'</tr>'
+					var contentBody = '';
 				    for( var j=0; j < maxLen; j++ ){
 						var input = '';
 						var output = '';
 
 						if (typeof json_input[j] !== 'undefined') input = json_input[j].value + '(' + json_input[j].type +')';
 						if (typeof json_output[j] !== 'undefined') output = json_output[j].value + '(' + json_output[j].type +')';
-
-				        $('#testCase-table tbody').append(
-							'<tr>'+
-								'<td></td>'+
-								'<td>'+ input +'</td>'+
-								'<td>'+ output +'</td>'+
-								'<td></td>'+
-							'</tr>'
-						);
+						if( j == 0) {
+							contentBody = mergeNo+'<td>'+ input +'</td>'+'<td>'+ output +'</td>'+mergeEdit
+						}else{
+							contentBody = contentBody+ '<tr><td>'+ input +'</td>'+'<td>'+ output +'</td></tr>'
+						}					
+																
 					}
+					$('#testCase-table tbody').append(							
+								contentBody
+								
+						);
 				}
 			});
 		</script>
@@ -126,7 +123,7 @@
 
 	        <div class="col-md-8 col-sm-8 col-xs-12">
 	                  <!-- Table of Question -->
-	                    <div class="panel panel-default">
+	                    <div class="panel panel-success">
 	                        <div class="panel-heading">
 	                        	Table of Test case
 	                        	<button class="btn btn-primary btn-xs pull-right" onclick="window.location='{{ url("createTestCase/$question->id") }}'"> 
@@ -142,7 +139,7 @@
 	                                            <th>No.</th>
 	                                            <th>Input</th>
 	                                            <th>Output</th>
-	                                            <th></th>
+	                                            <th>Action</th>
 	                                        </tr>
 	                                    </thead>
 	                                    <tbody></tbody>
