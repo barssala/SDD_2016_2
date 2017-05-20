@@ -67,7 +67,7 @@
                                             <td>{{$assignment->active ? "ACTIVE" : "INACTIVE"}}</td>
                                             <td>
                                                     <center>
-                                                        <a href="editAssignment/{{ $assignment->id }}">
+                                                        <a href="viewAssignment/{{ $assignment->id }}">
                                                             <button class="btn btn btn-primary btn-xs">
                                                                 <i class="fa fa-edit ">
                                                                     

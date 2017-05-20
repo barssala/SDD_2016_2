@@ -27,6 +27,14 @@ class AssignmentController extends BaseController {
         return View::make('assignmentCreate');
     }
 
+    public function view($id)
+    {
+        $assignment  = assignment::find($id);
+        $questions = Question::where('assignment_id', $id)->get();
+
+        return View::make('assignmentView', compact('assignment','questions'));
+    }
+
 	public function editAssignment($id)
   {
     $assignment  = assignment::find($id);

@@ -24,6 +24,7 @@ Route::get('createAssignment', 'AssignmentController@createAssignment');
 Route::get('editAssignment/{id}', 'AssignmentController@editAssignment');
 
 Route::post('saveAssignment', ['as' => 'saveAssignment','uses' => 'AssignmentController@saveAssignment']);
+Route::get('viewAssignment/{id}', ['as' => 'viewAssignment','uses' => 'AssignmentController@view']);
 Route::post('updateAssignment/{id}', ['as' => 'updateAssignment','uses' => 'AssignmentController@update']);
 Route::get('deleteAssignment/{id}', 'AssignmentController@delete');
 
@@ -40,7 +41,6 @@ Route::get('editTestCase/{id}', 'TestCaseController@editTestCase');
 Route::post('saveTestCase/{question_id}', ['as' => 'saveTestCase','uses' => 'TestCaseController@saveTestCase']);
 Route::post('updateTestCase/{id}', ['as' => 'updateTestCase','uses' => 'TestCaseController@update']);
 Route::get('deleteTestCase/{id}', 'TestCaseController@delete');
-Route::post('saveAssignment', ['as' => 'saveAssignment','uses' => 'AssignmentController@saveAssignment']);
 //Auth::routes();
 
 Route::get('/', function () {
