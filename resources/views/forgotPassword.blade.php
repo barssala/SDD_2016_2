@@ -4,7 +4,7 @@
 <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
-    <title>Register</title>
+    <title>Forgot Password</title>
     <!-- BOOTSTRAP CORE STYLE  -->
     <!-- <link href="assets/css/bootstrap.css" rel="stylesheet" /> -->
     <link href="<?php echo asset('css/bootstrap.css') ?>" rel="stylesheet" />
@@ -19,7 +19,6 @@
     <link href="<?php echo asset('css/style.css') ?>" rel="stylesheet" />
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    
     <script>
     $( document ).ready(function() {
 
