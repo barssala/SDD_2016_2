@@ -17,11 +17,10 @@
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="{{asset('js/laravel.js')}}"></script>
-<script>window.csrfToken = '<?php echo csrf_token(); ?>';</script>
+<script>window.csrfToken = '<?php echo csrf_token(); ?>';</script>      
 
     <div class="navbar navbar-inverse set-radius-zero" >
         <div class="container">
@@ -31,7 +30,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ URL::to('home') }}">
+                <a class="navbar-brand" href="{{ URL::to('home')}}">
                 </a>
             </div>
             <div class="right-div">
@@ -46,11 +45,11 @@
                 <div class="col-md-12">
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
-                            <li><a href="{{ URL::to('home') }}" class="menu-top-active">HOME</a></li>
-
-                            <li><a href="#">FORMS</a></li>
+                            <li><a href="{{ URL::to('home')}}" class="menu-top-active">HOME</a></li>
+                           
+                            <!--<li><a href="#">FORMS</a></li>-->
                             <li>
-                                <a href="{{ URL::to('getAssignments') }}" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">ASSIGNMENT<i class="fa fa-angle-down"></i></a>
+                                <a href="{{ URL::to('getAssignments') }}">ASSIGNMENT<i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">UI ELEMENTS</a></li>
                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">EXAMPLE LINK</a></li>
