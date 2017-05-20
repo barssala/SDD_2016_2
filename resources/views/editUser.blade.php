@@ -6,6 +6,13 @@
         <![endif]-->
     <title>Edit User</title>
 	@include('includes.head')
+
+<style type="text/css">
+   .row{
+    margin-bottom: 5px !important;
+   }
+</style>
+
 </head>
 <body>
 
