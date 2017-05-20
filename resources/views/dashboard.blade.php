@@ -12,7 +12,17 @@
 
 <body>
     <div class="content-wrapper">
+         <div class="container">
+        <div class="row pad-botm">
+            <div class="col-md-12">
+                <h4 class="header-line">ADMIN DASHBOARD</h4>
+                
+            </div>
+        </div>
+        </div>
     
+
+        </div>    
     </div>
         @include('includes.footer') 
 </body>
