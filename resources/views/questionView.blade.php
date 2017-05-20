@@ -20,14 +20,23 @@
 										 @endforeach ];
 
 				var tcNo = tcId_arr.length;
+				var role = '<?php echo session("user")->role_id ?>';
+				console.log(role);
 				for (var i = 0; i < tcNo; i++) {
+					var action = '';
+					if (role !== 3) {
+						action = '<td><a href="../editTestCase/' + tcId_arr[i] + '"><span class="glyphicon glyphicon-cog"></span></a>'+
+								'<a href="../deleteTestCase/'+tcId_arr[i]+'"><span class="glyphicon glyphicon-trash"></span></a></td>';
+					}
 					$('#testCase-table tbody').append(
 						'<tr>'+
 							'<td>'+ (i+1) +'</td>'+
 							'<td></td>'+
 							'<td></td>'+
 							'<td><a href="../editTestCase/' + tcId_arr[i] + '"><span class="glyphicon glyphicon-cog"></span></a>'+
-								'<a href="../deleteTestCase/'+tcId_arr[i]+'"><span class="glyphicon glyphicon-trash"></span></a></td>'+
+								'<a href="../deleteTestCase/'+tcId_arr[i]+'"><span class="glyphicon glyphicon-trash"></span></a></td>' 
+								//: '' )
+								+
 						'</tr>');
 
 					var json_input = $.parseJSON( tcInput_arr[i] );
@@ -39,12 +48,15 @@
 
 						if (typeof json_input[j] !== 'undefined') input = json_input[j].value + '(' + json_input[j].type +')';
 						if (typeof json_output[j] !== 'undefined') output = json_output[j].value + '(' + json_output[j].type +')';
-
+						var column = '';
+						if (role === 3) {
+							column = '<td></td>';
+						}
 				        $('#testCase-table tbody').append(
 							'<tr>'+
 								'<td></td>'+
 								'<td>'+ input +'</td>'+
-								'<td>'+ output +'</td>'+
+								'<td>'+ output +'</td>' +
 								'<td></td>'+
 							'</tr>'
 						);
@@ -58,7 +70,6 @@
     <body>
     	<div class="content-wrapper">
         	<div class="container">
-			    {{ Form::open(['url' => ['updateQuestion',$question->id]]) }}
 					<fieldset>
 						<div class="col-md-6">
 				            <div class="panel panel-info">
@@ -69,53 +80,42 @@
 
 					                <div class="form-group">
 	                                	<label for="assignment">Question Name</label>
-	                                	{{ Form::text('name', $question->name, 
-                        					array('required', 
-	                                        	'class'=>'form-control', 
-	                                        	'placeholder'=>'Question')) }}
-	                                    <p class="help-block">Question name, without spaces</p>
+	                                	<div class="controls">
+	                                		{{$question->name}}
+	                                	</div>
 	                                </div>
 
 	                                <div class="form-group">
 		                                <label for="description">Description</label>
-		                                {{ Form::textarea('description', $question->description, 
-		                                      array('required', 
-		                                        'class'=>'form-control', 
-		                                        'placeholder'=>'Description')) }}
-		                                <p class="help-block">Please input description</p>                   
+		                                <div class="controls">
+		                                	{{$question->description}}
+		                                </div>
 		                            </div>
 
 		                            <div class="form-group">
 		                                <label for="Guideline">Guideline</label>
-		                                {{ Form::textarea('guideline', $question->guideline, 
-		                                      array('required', 
-		                                        'class'=>'form-control', 
-		                                        'placeholder'=>'Guideline')) }}
-		                                <p class="help-block">Please input Guideline</p>                   
+		                                <div class="controls">
+		                                	{{$question->guideline}}
+		                                </div>
 		                            </div>
 
 		                            <div class="form-group">
 	                                	<label for="score">Score</label>
-	                                	{{ Form::text('score', $question->score, 
-                        					array('required', 
-	                                        	'class'=>'form-control', 
-	                                        	'placeholder'=>'Score')) }}
+	                                	<div class="controls">
+	                                		{{$question->score}}
+	                                	</div>
 	                                </div>
 
 	                                <div class="form-group">
 		                                <label for="status">Status</label>
 		                                <div class="controls">
-				                            {{ Form::radio('status', "ACTIVE", $question->active ? 1 : 0) }}
-											{{ Form::label('open', 'ACTIVE') }}
-											{{ Form::radio('status', "INACTIVE", $question->active ? 0 : 1) }}
-											{{ Form::label('closed', 'INACTIVE') }}
+		                                	{{ $question->active ? "ACTIVE" : "INACTIVE" }}
 			                            </div>
 		                            </div>
 
 		                            <div class="control-group">
 			                            <div class="controls">
-			                                <button class="btn btn-success">Save</button>
-			                                <a href="../editAssignment/{{ $question->assignment_id }}" class="btn btn-success">Back</a>
+			                            <a href="../viewAssignment/{{ $question->assignment_id }}" class="btn btn-success">Back</a>
 			                            </div>
 			                        </div>
 
@@ -123,10 +123,10 @@
 			               	</div>
 			            </div>
 					</fieldset>
-			    {{ Form::close()  }}
 			</div>
 		</div>
 
+<?php if ((session('user')->role_id != 3)): ?>
 		<div class="container">
 	        <div class="row">
 	                <div class="col-md-11">
@@ -134,10 +134,6 @@
 	                    <div class="panel panel-default">
 	                        <div class="panel-heading">
 	                        	Table of Test case
-	                        	<button class="btn btn-primary btn-xs pull-right" onclick="window.location='{{ url("createTestCase/$question->id") }}'"> 
-	                        		<span class="glyphicon glyphicon-plus glyphicon"></span> 
-	                        		Add New
-	                        	</button>
 	                        </div>
 	                        <div class="panel-body">
 	                            <div class="table-responsive">
@@ -147,7 +143,9 @@
 	                                            <th>No.</th>
 	                                            <th>Input</th>
 	                                            <th>Output</th>
-	                                            <th></th>
+	                                            <?php if ((session('user')->role_id != 3)): ?>
+	                                            	<th></th>
+	                                            <?php endif; ?>
 	                                        </tr>
 	                                    </thead>
 	                                    <tbody></tbody>
@@ -158,5 +156,6 @@
 					</div>
 			 </div>
 		</div>
+		<?php endif; ?>
 	</body>
 </html>

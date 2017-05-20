@@ -56,7 +56,7 @@
                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">EXAMPLE LINK</a></li>
                                 </ul>
                             </li>
-                            <?php if ((session('user')->role_id == 1)): ?>
+                            <?php if ((session('user')->role_id === 1)): ?>
                                 <li><a href="{{ URL::to('userLists') }}" >USER MANAGEMENT</a></li>
                             <?php endif; ?>
                         </ul>

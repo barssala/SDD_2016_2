@@ -24,7 +24,6 @@
 						<label class="control-label" for="assignment">Assignment Name</label>
 						<div class="controls">
                         {{$assignment->name}}
-						<p class="help-block">Assignment name, without spaces</p>
 						</div>
 					</div>
 
@@ -32,7 +31,6 @@
 				<label class="control-label" for="description">Description</label>
 				<div class="controls">
 					{{$assignment->description}}
-					<p class="help-block">Please input description</p>
 				</div>
 			 </div>
 
@@ -40,7 +38,6 @@
 				<label class="control-label" for="duedate">Due Date</label>
 				<div class="controls">
 					{{$assignment->duedate}}
-					<p class="help-block">Choose Due Date</p>
 				 </div>
 			</div>
 
@@ -53,7 +50,7 @@
 
 			 <div class="form-group">
 				<div class="controls">
-				    <button class="btn btn-success" onclick="window.location='{{ URL::to('getAssignments') }}'">Back</button>
+                <a href="{{ URL::to('getAssignments') }}" class="btn btn-success">Back</a>
 				</div>
 			 </div>
 			 </form>
@@ -121,6 +118,7 @@
                                             <th>Gulideline</th>
 											<th>Score</th>
 											<th>Status</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -133,6 +131,13 @@
 											<td>{{$question->guideline}}</td>
 											<td>{{$question->score}}</td>
 											<td>{{$question->active ? "ACTIVE" : "INACTIVE"}}</td>
+                                            <td>
+                                                <a href="../viewQuestion/{{ $question->id }}"><span class="glyphicon glyphicon-eye-open"></span></a>
+                                                <?php if ((session('user')->role_id != 3)): ?>
+                                                    <a href="../editQuestion/{{ $question->id }}"><span class="glyphicon glyphicon-cog"></span></a>
+                                                    <a href="../deleteQuestion/{{ $question->id }}"><span class="glyphicon glyphicon-trash"></span></a>
+                                                <?php endif; ?>
+                                            </td>
 										@endforeach
 									@endif
                                     </tbody>

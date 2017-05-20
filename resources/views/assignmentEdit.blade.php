@@ -58,7 +58,7 @@
 			 <div class="form-group">
 				<div class="controls">
 					<button class="btn btn-success">Save</button>
-				    <button class="btn btn-success" onclick="window.location='{{ url("getAssignments") }}'">Back</button>
+				    <a href="{{ URL::to('getAssignments') }}" class="btn btn-success">Back</a>
 				</div>
 			 </div>
 			 </form>
@@ -131,6 +131,7 @@
                                             <th>Gulideline</th>
 											<th>Score</th>
 											<th>Status</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -144,7 +145,8 @@
 											<td>{{$question->score}}</td>
 											<td>{{$question->active ? "ACTIVE" : "INACTIVE"}}</td>
 											<td>
-												<a href="../editQuestion/{{ $question->id }}"><span class="glyphicon glyphicon-cog"></span></a>						
+                                                <a href="../viewQuestion/{{ $question->id }}"><span class="glyphicon glyphicon-eye-open"></span></a>
+												<a href="../editQuestion/{{ $question->id }}"><span class="glyphicon glyphicon-cog"></span></a>
 												<a href="../deleteQuestion/{{ $question->id }}"><span class="glyphicon glyphicon-trash"></span></a>
 											</td>
 										@endforeach

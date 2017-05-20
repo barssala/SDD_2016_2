@@ -19,7 +19,7 @@ Route::get('/form',function(){
 
 Route::get('user/{id}', 'UserController@showProfile');
 
-Route::get('getAssignments', 'AssignmentController@getAssignments');
+Route::get('getAssignments', ['as' => 'getAssignments','uses' => 'AssignmentController@getAssignments']);
 Route::get('createAssignment', 'AssignmentController@createAssignment');
 Route::get('editAssignment/{id}', 'AssignmentController@editAssignment');
 
@@ -30,6 +30,7 @@ Route::get('deleteAssignment/{id}', 'AssignmentController@delete');
 
 Route::get('createQuestion/{assignment_id}', 'QuestionController@createQuestion');
 Route::get('editQuestion/{id}', 'QuestionController@editQuestion');
+Route::get('viewQuestion/{id}', 'QuestionController@viewQuestion');
 
 Route::post('saveQuestion/{assignment_id}', ['as' => 'saveQuestion','uses' => 'QuestionController@saveQuestion']);
 Route::post('updateQuestion/{id}', ['as' => 'updateQuestion','uses' => 'QuestionController@update']);
