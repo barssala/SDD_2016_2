@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html >
 	<head>
         <meta charset="utf-8">
@@ -16,7 +16,7 @@
 	    	<fieldset>
 	            <div class="panel panel-info">
 	                <div class="panel-heading">
-	                    Assignment [Add]
+	                    Assignment [View]
 	                </div> 
 
 	                <div class="panel-body">
