@@ -47,7 +47,7 @@ class AssignmentController extends BaseController {
         $assignment = new Assignment;
         $assignment->name = $request->name;
         $assignment->description = $request->description;
-        $assignment->active = $request->status == "Open";
+        $assignment->active = $request->status == "ACTIVE";
         $assignment->duedate = $request->duedate;
         $assignment->deleted = false;
         $assignment->save();
