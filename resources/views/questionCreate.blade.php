@@ -8,7 +8,7 @@
     <body>
 		<div class="content-wrapper">
         	<div class="container">
-    			{{ Form::open(['url' => ['saveQuestion',$assignment_id[0]]]) }}
+    			{{ Form::open(['url' => ['saveQuestion',$assignment_id]]) }}
 					<fieldset>
 						<div class="col-md-6">
 				            <div class="panel panel-info">
