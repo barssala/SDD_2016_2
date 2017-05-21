@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use View;
+use App\models\Assignment;
 
 class DashboardController extends Controller
 {
@@ -25,8 +26,9 @@ class DashboardController extends Controller
      */
     public function home()
     {
+        $assignments = Assignment::take(4)->get();
         // $user = session('user');
         //var_dump($user);
-        return view('dashboard');
+        return view('dashboard', array('assignments' => $assignments));
     }
 }

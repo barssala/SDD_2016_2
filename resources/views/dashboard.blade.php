@@ -125,19 +125,19 @@
             </div>
         </div>
 					<div class="row">
-					@for ($i = 0; $i < 4; $i++)		              
+					@foreach ($assignments as $key=>$assignment)		              
   						<div class="col-md-3 col-sm-3 col-xs-6">		                   
 							<div class="alert alert-info back-widget-set text-center">
-		                    	<a href="viewAssignment/{{ $i+1 }}">
+		                    	<a href="viewAssignment/{{ $assignment->id }}">
 		                    		<i class="fa fa-book fa-5x"></i>
-                                         <h3>Assignment {{ $i+1 }}</h3>
+                                         <h3>Assignment {{ $assignment->name }}</h3>
                                 </a>
 										<!--จะวนfor loop 6 ครั้ง แสดงassignmentล่าุสด  -->
 							</div>
 			                    
 		                </div>
 	
-					@endfor                							
+					@endforeach                							
 					<div class="fh5co-feature-text" align="right">
 											<p><a id="assignments" href="{{ URL::to('getAssignments') }}">Read more</a></p>
 							</div>
