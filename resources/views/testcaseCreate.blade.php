@@ -96,7 +96,7 @@
 
                     <!-- Advanced Tables -->
         {{ Form::open(['url' => ['saveTestCase',$question_id[0]]]) }}
-		 <div class="panel panel-default">			
+		 <div class="">			
 			<div class="panel-body">	
 			<div class="panel panel-info">
 				                <div class="panel-heading">

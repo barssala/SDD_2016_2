@@ -22,7 +22,7 @@
 
         <!-- Advanced Tables -->
         {{ Form::open(['url' => 'createNewUser']) }}
-		 <div class="panel panel-default">			
+		 <div class="panel panel-success">			
 			<div class="panel-body">	
 			    <div>
 
