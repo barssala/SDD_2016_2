@@ -49,7 +49,7 @@ class QuestionController extends BaseController {
         $question->description = $request->description;
 		$question->guideline = $request->guideline;
 		$question->score = $request->score;
-        $question->active = $request->status == "Open";
+        $question->active = $request->status == "ACTIVE";
         $question->deleted = false;
         $question->save();
 
