@@ -118,10 +118,16 @@
             <div class="col-md-12">
                          <?php if ((session('user')->role_id == 1)) { ?>
 								<h3 class="header-line">ADMIN DASHBOARD</h3>
-								<h4>Name: admin</h4>
+                        <?php } else if ((session('user')->role_id == 2)) {?>
+                                <h4 class="header-line">PROFESSOR DASHBOARD</h4>
+                        <?php } else if ((session('user')->role_id == 3)) {?>
+                                <h4 class="header-line">STUDENT DASHBOARD</h4>
+                        <?php } else if ((session('user')->role_id == 4)) {?>
+                                <h4 class="header-line">TA DASHBOARD</h4>
 						<?php } else {?>
 								<h4 class="header-line">USER DASHBOARD</h4>
                          <?php } ?>
+                                <h4>Name: <?php echo session('user')->user ?></h4>
             </div>
         </div>
 					<div class="row">
